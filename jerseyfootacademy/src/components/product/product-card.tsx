@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ProductSeed } from "@/data/types";
 import { ProductBadges } from "@/components/ui/badges";
+import { FavoriteButton } from "@/components/product/favorite-button";
 import { Price } from "@/components/ui/price";
 import { Stars } from "@/components/ui/stars";
 import { ratingFor } from "@/data/reviews";
@@ -25,6 +26,7 @@ export function ProductCard({ product }: { product: ProductSeed }) {
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <ProductBadges product={product} className="absolute left-3 top-3" />
+        <FavoriteButton slug={product.slug} className="absolute right-3 top-3" />
       </div>
       <div className="flex flex-1 flex-col gap-1.5 p-4">
         {club && (

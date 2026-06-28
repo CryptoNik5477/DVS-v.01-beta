@@ -27,6 +27,7 @@ export const categories: CategoryNode[] = [
   { type: "COUNTRY", name: "Italy", slug: "italy", countryCode: "IT", parentSlug: "europe" },
   { type: "COUNTRY", name: "Germany", slug: "germany", countryCode: "DE", parentSlug: "europe" },
   { type: "COUNTRY", name: "France", slug: "france", countryCode: "FR", parentSlug: "europe" },
+  { type: "COUNTRY", name: "Netherlands", slug: "netherlands", countryCode: "NL", parentSlug: "europe" },
 
   // England › Cities
   { type: "CITY", name: "Manchester", slug: "manchester", parentSlug: "england" },
@@ -38,11 +39,16 @@ export const categories: CategoryNode[] = [
   // Italy › Cities
   { type: "CITY", name: "Milan", slug: "milan", parentSlug: "italy" },
   { type: "CITY", name: "Turin", slug: "turin", parentSlug: "italy" },
+  { type: "CITY", name: "Naples", slug: "naples", parentSlug: "italy" },
+  { type: "CITY", name: "Rome", slug: "rome", parentSlug: "italy" },
   // Germany › Cities
   { type: "CITY", name: "Munich", slug: "munich", parentSlug: "germany" },
   { type: "CITY", name: "Dortmund", slug: "dortmund-city", parentSlug: "germany" },
   // France › Cities
   { type: "CITY", name: "Paris", slug: "paris", parentSlug: "france" },
+  { type: "CITY", name: "Marseille", slug: "marseille", parentSlug: "france" },
+  // Netherlands › Cities
+  { type: "CITY", name: "Amsterdam", slug: "amsterdam", parentSlug: "netherlands" },
 
   // ── Clubs ────────────────────────────────────────────────────────────────
   { type: "CLUB", name: "Manchester United", slug: "manchester-united", countryCode: "GB", parentSlug: "manchester" },
@@ -60,6 +66,10 @@ export const categories: CategoryNode[] = [
   { type: "CLUB", name: "Bayern Munich", slug: "bayern-munich", countryCode: "DE", parentSlug: "munich" },
   { type: "CLUB", name: "Borussia Dortmund", slug: "borussia-dortmund", countryCode: "DE", parentSlug: "dortmund-city" },
   { type: "CLUB", name: "Paris Saint-Germain", slug: "psg", countryCode: "FR", parentSlug: "paris" },
+  { type: "CLUB", name: "Olympique de Marseille", slug: "marseille-fc", countryCode: "FR", parentSlug: "marseille" },
+  { type: "CLUB", name: "SSC Napoli", slug: "napoli", countryCode: "IT", parentSlug: "naples" },
+  { type: "CLUB", name: "AS Roma", slug: "as-roma", countryCode: "IT", parentSlug: "rome" },
+  { type: "CLUB", name: "AFC Ajax", slug: "ajax", countryCode: "NL", parentSlug: "amsterdam" },
 
   // ── National Teams branch ──────────────────────────────────────────────────
   { type: "NATIONAL", name: "National Teams", slug: "national-teams", image: img("photo-1551958219-acbc608c6377") },
@@ -73,6 +83,9 @@ export const categories: CategoryNode[] = [
   { type: "NATIONAL", name: "USA", slug: "usa", countryCode: "US", parentSlug: "national-teams" },
   { type: "NATIONAL", name: "Mexico", slug: "mexico", countryCode: "MX", parentSlug: "national-teams" },
   { type: "NATIONAL", name: "Japan", slug: "japan", countryCode: "JP", parentSlug: "national-teams" },
+  { type: "NATIONAL", name: "Netherlands", slug: "netherlands-nt", countryCode: "NL", parentSlug: "national-teams" },
+  { type: "NATIONAL", name: "Italy", slug: "italy-nt", countryCode: "IT", parentSlug: "national-teams" },
+  { type: "NATIONAL", name: "Morocco", slug: "morocco", countryCode: "MA", parentSlug: "national-teams" },
 ];
 
 export const categoryBySlug = new Map(categories.map((c) => [c.slug, c]));

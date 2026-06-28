@@ -42,10 +42,10 @@ export default async function AccountPage() {
   }
 
   const tiles = [
-    { icon: Package, label: "Orders", value: orders.length },
-    { icon: Heart, label: "Favorites", value: "—" },
-    { icon: MapPin, label: "Addresses", value: "—" },
-    { icon: Receipt, label: "Invoices", value: orders.length },
+    { icon: Package, label: "Orders", value: orders.length, href: "/account" },
+    { icon: Heart, label: "Favorites", value: "♥", href: "/account/favorites" },
+    { icon: MapPin, label: "Addresses", value: "—", href: "/account/addresses" },
+    { icon: Receipt, label: "Invoices", value: orders.length, href: "/account" },
   ];
 
   return (
@@ -62,11 +62,15 @@ export default async function AccountPage() {
 
       <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
         {tiles.map((t) => (
-          <div key={t.label} className="rounded-xl bg-white p-5 shadow-soft ring-1 ring-navy/5">
+          <Link
+            key={t.label}
+            href={t.href}
+            className="rounded-xl bg-white p-5 shadow-soft ring-1 ring-navy/5 transition hover:-translate-y-0.5 hover:shadow-lg"
+          >
             <t.icon className="text-gold" size={22} />
             <p className="mt-3 text-2xl font-bold">{t.value}</p>
             <p className="text-xs text-navy/50">{t.label}</p>
-          </div>
+          </Link>
         ))}
       </div>
 

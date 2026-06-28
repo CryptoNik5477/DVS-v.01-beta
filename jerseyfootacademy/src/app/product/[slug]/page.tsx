@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ImageGallery } from "@/components/product/image-gallery";
 import { PurchasePanel } from "@/components/product/purchase-panel";
+import { FavoriteButton } from "@/components/product/favorite-button";
 import { Reviews } from "@/components/product/reviews";
 import { SizeGuide } from "@/components/product/size-guide";
 import { ProductBadges } from "@/components/ui/badges";
@@ -93,7 +94,10 @@ export default async function ProductPage({ params }: Params) {
               {club.name}
             </Link>
           )}
-          <h1 className="mt-1 font-display text-3xl font-extrabold">{product.name}</h1>
+          <div className="mt-1 flex items-start justify-between gap-3">
+            <h1 className="font-display text-3xl font-extrabold">{product.name}</h1>
+            <FavoriteButton slug={product.slug} showLabel className="flex-none" />
+          </div>
           <div className="mt-2 flex items-center gap-3">
             <ProductBadges product={product} />
             {product.competition && (

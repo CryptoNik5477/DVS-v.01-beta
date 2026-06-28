@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Menu, Search, User, X } from "lucide-react";
+import { Heart, Menu, Search, User, X } from "lucide-react";
 import { CartIndicator } from "./cart-indicator";
 import { CurrencySwitcher } from "./currency-switcher";
 import { LanguageSwitcher } from "./language-switcher";
@@ -65,6 +65,9 @@ export function Header() {
           <div className="flex items-center gap-1">
             <Link href="/search" className="p-2" aria-label={t("search")}>
               <Search size={20} />
+            </Link>
+            <Link href="/account/favorites" className="hidden p-2 sm:inline-flex" aria-label="Favorites">
+              <Heart size={20} />
             </Link>
             <Link href="/account" className="p-2" aria-label={t("account")}>
               <User size={20} />
