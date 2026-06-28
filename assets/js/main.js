@@ -49,7 +49,7 @@
       "work.kicker": "ผลงานของเรา",
       "work.title": "ก่อน & หลัง — ผลลัพธ์จริง",
       "work.lead": "ตัวอย่างผลงาน: เว็บไซต์ที่ทำใหม่ แอปที่สร้าง อันดับ SEO ที่ดีขึ้น และระบบจัดการภายในร้าน",
-      "work.ba.title": "เว็บไซต์ร้านกาแฟ — ทำใหม่",
+      "work.ba.title": "ครัวริมโขง บุฟเฟต์ — เว็บไซต์ทำใหม่",
       "work.ba.before": "ก่อน",
       "work.ba.after": "หลัง",
       "work.ba.caption": "ลากเพื่อเปรียบเทียบ ก่อน/หลัง",
@@ -111,6 +111,8 @@
       "contact.whatsapp": "แชทบน WhatsApp",
       "contact.email": "ส่งอีเมลถึงผม",
       "contact.qr": "สแกนเพื่อเพิ่มเพื่อนบน LINE",
+      "contact.facebook": "ติดตามบนเฟซบุ๊ก",
+      "contact.fbfollow": "ติดตามเราบน Facebook",
 
       "footer.tag": "อีสาน × เว็บ — เชื่อมร้านท้องถิ่นสู่โลกออนไลน์"
     },
@@ -156,7 +158,7 @@
       "work.kicker": "Our work",
       "work.title": "Before & after — real results",
       "work.lead": "Examples: websites rebuilt, apps created, SEO rankings improved, and internal management systems.",
-      "work.ba.title": "Café website — rebuilt",
+      "work.ba.title": "Krua Rim Khong Buffet — website rebuilt",
       "work.ba.before": "Before",
       "work.ba.after": "After",
       "work.ba.caption": "Drag to compare before / after",
@@ -218,6 +220,8 @@
       "contact.whatsapp": "Chat on WhatsApp",
       "contact.email": "Email me",
       "contact.qr": "Scan to add me on LINE",
+      "contact.facebook": "Follow on Facebook",
+      "contact.fbfollow": "Follow us on Facebook",
 
       "footer.tag": "Isan × Web — connecting local shops to the online world"
     }
