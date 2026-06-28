@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Noto+Sans+Thai:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#444}
+  .pad{margin:24px;width:1024px;height:1024px}
+  .ring{width:1024px;height:1024px;border-radius:50%;padding:18px;
+    background:conic-gradient(from 220deg,#34F5FF,#14B8A6,#F5A524,#34F5FF);
+    filter:drop-shadow(0 0 40px rgba(52,245,255,.35))}
+  .face{width:100%;height:100%;border-radius:50%;position:relative;overflow:hidden;
+    background:radial-gradient(120% 100% at 50% 18%,#171048,#0A0820 70%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .grid{position:absolute;inset:0;opacity:.5;
+    background:linear-gradient(transparent 47px,rgba(155,140,255,.06) 48px),linear-gradient(90deg,transparent 47px,rgba(155,140,255,.06) 48px);
+    background-size:48px 48px;-webkit-mask-image:radial-gradient(circle at 60% 35%,#000,transparent 72%)}
+  .glow{position:absolute;width:70%;height:70%;left:-10%;top:-6%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(20,184,166,.5),transparent 60%)}
+  .glow2{position:absolute;width:60%;height:60%;right:-8%;bottom:-6%;border-radius:50%;filter:blur(70px);background:radial-gradient(circle,rgba(245,165,36,.4),transparent 60%)}
+  .grad{background:linear-gradient(120deg,#34F5FF,#2DD4BF 40%,#F5A524);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .l{color:#EAE7FF;opacity:.95}
+  .word{font-family:"Sora","Noto Sans Thai",sans-serif;font-weight:800;line-height:1;position:relative}
+  .tag{font-family:"Sora","Noto Sans Thai",sans-serif;color:#A7A1D6;font-weight:600;position:relative}
+  svg{display:block;overflow:visible;position:relative}
+</style></head>
+<body>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#34F5FF"/><stop offset=".45" stop-color="#14B8A6"/><stop offset="1" stop-color="#F5A524"/>
+  </linearGradient>
+  <symbol id="naga" viewBox="0 0 760 760">
+    <g stroke="url(#g)" stroke-width="3" fill="none" opacity=".5">
+      <path d="M250 350 l16 16 -16 16 -16 -16 z"/><path d="M470 300 l15 15 -15 15 -15 -15 z"/>
+      <path d="M420 470 l16 16 -16 16 -16 -16 z"/><path d="M180 250 l14 14 -14 14 -14 -14 z"/>
+    </g>
+    <path fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round"
+      d="M70 600 C 170 540 150 410 250 400 C 360 388 360 300 300 250 C 250 208 300 140 390 150 C 500 162 470 270 540 300 C 640 342 700 250 700 180"/>
+    <g fill="#34F5FF">
+      <circle cx="250" cy="400" r="11"/><circle cx="300" cy="250" r="11"/>
+      <circle cx="390" cy="150" r="11" fill="#2DD4BF"/><circle cx="540" cy="300" r="11" fill="#F5A524"/>
+    </g>
+    <g fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M700 180 q34 -8 46 -42 q-30 14 -46 6 q10 -30 -6 -52 q-14 26 -30 26 q-2 -22 -26 -28 q8 22 -4 36"/>
+    </g>
+    <circle cx="708" cy="150" r="7" fill="#F5A524"/>
+  </symbol>
+</defs></svg>
+
+<!-- FULL round logo: mark + wordmark -->
+<div class="pad"><div class="ring" id="round"><div class="face">
+  <div class="grid"></div><div class="glow"></div><div class="glow2"></div>
+  <svg width="440" height="440" style="margin-top:40px"><use href="#naga" width="440" height="440"/></svg>
+  <div class="word" style="font-size:118px;margin-top:6px"><span class="l">ISSAN</span><span class="grad">web</span></div>
+  <div class="word grad" style="font-size:118px;margin-top:-16px">power</div>
+  <div class="tag" style="font-size:40px;margin-top:22px;letter-spacing:3px">อีสาน × เว็บ</div>
+</div></div></div>
+
+<!-- ICON round logo: mark only -->
+<div class="pad"><div class="ring" id="roundIcon"><div class="face">
+  <div class="grid"></div><div class="glow"></div><div class="glow2"></div>
+  <svg width="620" height="620"><use href="#naga" width="620" height="620"/></svg>
+</div></div></div>
+
+</body></html>
