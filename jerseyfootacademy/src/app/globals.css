@@ -81,6 +81,22 @@
   }
 }
 
+/* Print: hide site chrome and show only the invoice */
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #e5e5e5 !important;
+  }
+}
+
 /* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -89,8 +89,10 @@ export default async function AccountPage() {
               </thead>
               <tbody className="divide-y divide-navy/5">
                 {orders.map((o) => (
-                  <tr key={o.id}>
-                    <td className="px-4 py-3 font-semibold">{o.number}</td>
+                  <tr key={o.id} className="transition hover:bg-cream/60">
+                    <td className="px-4 py-3 font-semibold">
+                      <Link href={`/account/orders/${o.id}`} className="hover:text-red">{o.number}</Link>
+                    </td>
                     <td className="px-4 py-3">{formatDate(o.createdAt)}</td>
                     <td className="px-4 py-3">
                       <span className="badge bg-navy/5 text-navy">{o.status}</span>

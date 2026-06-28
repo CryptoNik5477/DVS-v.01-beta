@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { stripe, isStripeConfigured } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { productBySlug, effectivePrice } from "@/data/products";
@@ -126,12 +128,17 @@ export async function POST(req: Request) {
     metadata: { country, method, promoCode: promoCode ?? "", discountAmount: String(discountAmount) },
   });
 
+  // Attach the order to the signed-in user (if any) so it shows in their account.
+  const authSession = await getServerSession(authOptions);
+  const userId = (authSession?.user as { id?: string } | undefined)?.id;
+
   // Best-effort: persist a PENDING order. Skipped silently if DB is unavailable.
   try {
     await prisma.order.create({
       data: {
         number: generateOrderNumber(),
-        email: session.customer_details?.email ?? "pending@checkout",
+        userId,
+        email: session.customer_details?.email ?? authSession?.user?.email ?? "pending@checkout",
         currency: "USD",
         subtotal,
         shippingCost: shipping.cost,
