@@ -1,0 +1,104 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#777;font-family:"Prompt",sans-serif;color:#fff}
+  .wrap{margin:24px}
+  .v{position:relative;overflow:hidden}
+  .v img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gold{color:#ffd27a}
+  .feat{display:flex;align-items:center;gap:14px;font-weight:600}
+  .feat .ck{flex:none;display:grid;place-items:center;border-radius:50%;background:rgba(255,210,122,.18);color:#ffd27a;border:1px solid rgba(255,210,122,.5)}
+  .cta{display:inline-block;background:linear-gradient(120deg,#ffd27a,#e0901a);color:#241405;font-weight:800;border-radius:99px;box-shadow:0 14px 30px -10px rgba(224,144,26,.7)}
+  .badge{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    background:linear-gradient(135deg,#ffe39a,#e0901a);color:#2a1602;border-radius:50%;
+    box-shadow:0 16px 40px -10px rgba(0,0,0,.6);transform:rotate(8deg)}
+  .badge .s{font-family:"Sora";font-weight:800;letter-spacing:1px}
+  .badge .p{font-family:"Sora";font-weight:800;line-height:.95}
+  .brand{font-family:"Sora";font-weight:800;display:flex;align-items:center;gap:10px}
+  .brand .g{background:linear-gradient(120deg,#34F5FF,#2DD4BF 45%,#F5A524);-webkit-background-clip:text;background-clip:text;color:transparent}
+  svg{display:block}
+
+  /* landscape 1200x630 */
+  #villa-ls{width:1200px;height:630px}
+  #villa-ls .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,10,20,.94) 0%,rgba(8,10,20,.88) 40%,rgba(8,10,20,.35) 66%,rgba(8,10,20,0) 85%)}
+  #villa-ls .c{position:absolute;left:64px;top:104px;bottom:28px;display:flex;flex-direction:column;justify-content:center;max-width:680px}
+  #villa-ls .pill{display:inline-block;align-self:flex-start;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.12);color:#ffd27a;border-radius:99px;font-weight:600;font-size:20px;padding:8px 18px}
+  #villa-ls h1{font-family:"Sora","Prompt";font-weight:800;font-size:52px;line-height:1.1;margin:14px 0 6px}
+  #villa-ls .en{color:#c9d2e0;font-size:22px;margin-bottom:18px}
+  #villa-ls .feats{display:grid;gap:11px;margin-bottom:20px}
+  #villa-ls .feat{font-size:23px}#villa-ls .feat .ck{width:30px;height:30px;font-size:16px}
+  #villa-ls .price{display:flex;align-items:baseline;gap:12px}
+  #villa-ls .price .lbl{font-size:22px;color:#cdb79f}
+  #villa-ls .price .amt{font-family:"Sora";font-weight:800;font-size:60px;color:#ffd27a;line-height:1}
+  #villa-ls .valid{font-size:20px;color:#e8d5b0;margin:6px 0 18px}
+  #villa-ls .cta{align-self:flex-start;font-size:26px;padding:16px 36px}
+  #villa-ls .brand{position:absolute;left:64px;top:40px;font-size:30px}
+  #villa-ls .badge{right:70px;top:90px;width:215px;height:215px}
+  #villa-ls .badge .s{font-size:24px}#villa-ls .badge .p{font-size:58px;margin:2px 0}#villa-ls .badge .t{font-size:17px;font-weight:700}
+
+  /* square 1080x1080 */
+  #villa-sq{width:1080px;height:1080px}
+  #villa-sq .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,20,.55) 0%,rgba(8,10,20,.15) 32%,rgba(8,10,20,.8) 70%,rgba(8,10,20,.97) 100%)}
+  #villa-sq .brand{position:absolute;left:60px;top:54px;font-size:38px}
+  #villa-sq .badge{right:64px;top:70px;width:250px;height:250px}
+  #villa-sq .badge .s{font-size:28px}#villa-sq .badge .p{font-size:70px;margin:2px 0}#villa-sq .badge .t{font-size:20px;font-weight:700}
+  #villa-sq .c{position:absolute;left:0;right:0;bottom:0;padding:0 64px 60px;text-align:center}
+  #villa-sq .pill{display:inline-block;border:1px solid rgba(255,210,122,.5);background:rgba(255,210,122,.14);color:#ffd27a;border-radius:99px;font-weight:600;font-size:26px;padding:11px 26px}
+  #villa-sq h1{font-family:"Sora","Prompt";font-weight:800;font-size:72px;line-height:1.08;margin:18px 0 6px}
+  #villa-sq .en{color:#c9d2e0;font-size:30px;margin-bottom:24px}
+  #villa-sq .feats{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:26px}
+  #villa-sq .feat{font-size:28px}#villa-sq .feat .ck{width:36px;height:36px;font-size:19px}
+  #villa-sq .price{display:flex;align-items:baseline;justify-content:center;gap:14px}
+  #villa-sq .price .lbl{font-size:28px;color:#cdb79f}
+  #villa-sq .price .amt{font-family:"Sora";font-weight:800;font-size:84px;color:#ffd27a;line-height:1}
+  #villa-sq .valid{font-size:26px;color:#e8d5b0;margin:8px 0 26px}
+  #villa-sq .cta{font-size:38px;padding:22px 56px}
+</style></head>
+<body>
+
+<!-- featureset reused -->
+<!-- LANDSCAPE -->
+<div class="wrap"><div class="v" id="villa-ls">
+  <img class="bg" src="photo-villa.jpg" alt="">
+  <div class="ov"></div>
+  <div class="brand"><span class="g">🐉</span> ISSAN<span class="g">webpower</span></div>
+  <div class="badge"><span class="s">SUMMER</span><span class="p">฿3,900</span><span class="t">PROMOTION</span></div>
+  <div class="c">
+    <h1>เว็บไซต์ให้เช่าวิลล่า <span class="gold">ครบจบในที่เดียว</span></h1>
+    <div class="en">All-in-one villa rental website · เว็บไซต์ให้เช่าวิลล่า</div>
+    <div class="feats">
+      <div class="feat"><span class="ck">✓</span> ระบบจองตรงบนเว็บ · Direct booking</div>
+      <div class="feat"><span class="ck">✓</span> ชำระเงินออนไลน์ทันที · Online payment</div>
+      <div class="feat"><span class="ck">✓</span> SEO + Google Maps รวมแล้ว</div>
+    </div>
+    <div class="price"><span class="lbl">โปรพิเศษ เริ่มเพียง</span><span class="amt">฿3,900</span></div>
+    <div class="valid">SUMMER PROMOTION · ถึง 31 ก.ค. 2026 / until 31 July 2026</div>
+    <span class="cta">📩 สั่งเลย · LINE: issanwebpower</span>
+  </div>
+</div></div>
+
+<!-- SQUARE -->
+<div class="wrap"><div class="v" id="villa-sq">
+  <img class="bg" src="photo-villa.jpg" alt="">
+  <div class="ov"></div>
+  <div class="brand"><span class="g">🐉</span> ISSAN<span class="g">webpower</span></div>
+  <div class="badge"><span class="s">SUMMER</span><span class="p">฿3,900</span><span class="t">PROMOTION</span></div>
+  <div class="c">
+    <span class="pill">เว็บไซต์ให้เช่าวิลล่า · Villa Rental Website</span>
+    <h1>เว็บไซต์ให้เช่าวิลล่า<br><span class="gold">ครบจบในที่เดียว</span></h1>
+    <div class="en">All-in-one villa rental website</div>
+    <div class="feats">
+      <div class="feat"><span class="ck">✓</span> จองตรงบนเว็บ</div>
+      <div class="feat"><span class="ck">✓</span> ชำระเงินออนไลน์</div>
+      <div class="feat"><span class="ck">✓</span> SEO + Google Maps</div>
+    </div>
+    <div class="price"><span class="lbl">โปรพิเศษ เริ่มเพียง</span><span class="amt">฿3,900</span></div>
+    <div class="valid">ถึง 31 ก.ค. 2026 · until 31 July 2026</div>
+    <span class="cta">📩 สั่งเลย · LINE: issanwebpower</span>
+  </div>
+</div></div>
+
+</body></html>
