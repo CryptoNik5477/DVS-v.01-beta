@@ -31,10 +31,11 @@
   .role{font-family:"Sora";font-weight:600;font-size:32px;color:#2DD4BF}
   .role-th{font-size:25px;color:#A7A1D6;margin-top:8px}
   /* back QR */
-  .rows{max-width:600px}
-  .card-qr{position:absolute;right:6px;top:150px;width:210px;text-align:center;z-index:3}
-  .card-qr img{width:180px;height:180px;background:#fff;border-radius:16px;padding:10px;display:block;margin:0 auto}
-  .card-qr span{display:block;margin-top:12px;font-family:"Sora";font-weight:700;font-size:22px;color:#A7A1D6;letter-spacing:1px}
+  .rows{max-width:540px}
+  .card-qr{position:absolute;right:0;top:92px;width:200px;display:flex;flex-direction:column;gap:16px;align-items:center;z-index:3}
+  .qr-item{text-align:center}
+  .qr-item img{width:152px;height:152px;background:#fff;border-radius:14px;padding:8px;display:block;margin:0 auto}
+  .qr-item span{display:block;margin-top:8px;font-family:"Sora";font-weight:700;font-size:17px;color:#A7A1D6;letter-spacing:.5px}
   .front .pill{align-self:flex-start;font-family:"Sora";font-weight:600;font-size:19px;letter-spacing:2px;text-transform:uppercase;
     color:#34F5FF;border:1px solid rgba(155,140,255,.3);background:rgba(52,245,255,.07);border-radius:99px;padding:8px 18px;position:relative;z-index:2}
 
@@ -117,7 +118,10 @@
 <div class="wrap"><div class="card back" id="muay-back">
   <div class="grid"></div><div class="glow1"></div><div class="glow2"></div>
   <div class="safe">
-    <div class="card-qr"><img src="line-qr.png" alt="LINE QR"/><span>LINE · issanwebpower</span></div>
+    <div class="card-qr">
+      <div class="qr-item"><img src="line-qr.png" alt="LINE QR"/><span>LINE · issanwebpower</span></div>
+      <div class="qr-item"><img src="web-qr.png" alt="Website QR"/><span>เว็บไซต์ · Website</span></div>
+    </div>
     <div class="head"><svg width="46" height="46"><use href="#mark" width="46" height="46"/></svg>
       <span class="wm" style="font-size:34px"><span class="l">ISSAN</span><span class="grad">webpower</span></span></div>
     <div class="tagline">เพิ่มการมองเห็นออนไลน์ให้ธุรกิจของคุณ<br><span class="grad">Boost your business online</span></div>
@@ -136,7 +140,10 @@
 <div class="wrap"><div class="card back" id="alex-back">
   <div class="grid"></div><div class="glow1"></div><div class="glow2"></div>
   <div class="safe">
-    <div class="card-qr"><img src="line-qr.png" alt="LINE QR"/><span>LINE · issanwebpower</span></div>
+    <div class="card-qr">
+      <div class="qr-item"><img src="line-qr.png" alt="LINE QR"/><span>LINE · issanwebpower</span></div>
+      <div class="qr-item"><img src="web-qr.png" alt="Website QR"/><span>เว็บไซต์ · Website</span></div>
+    </div>
     <div class="head"><svg width="46" height="46"><use href="#mark" width="46" height="46"/></svg>
       <span class="wm" style="font-size:34px"><span class="l">ISSAN</span><span class="grad">webpower</span></span></div>
     <div class="tagline">เพิ่มการมองเห็นออนไลน์ให้ธุรกิจของคุณ<br><span class="grad">Boost your business online</span></div>
