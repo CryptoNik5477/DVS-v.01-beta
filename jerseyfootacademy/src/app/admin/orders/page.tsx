@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Price } from "@/components/ui/price";
 import { formatDate } from "@/lib/utils";
@@ -32,8 +33,10 @@ export default async function AdminOrdersPage() {
           <tbody className="divide-y divide-navy/5">
             {orders.length ? (
               orders.map((o) => (
-                <tr key={o.id}>
-                  <td className="px-4 py-3 font-semibold">{o.number}</td>
+                <tr key={o.id} className="transition hover:bg-cream/60">
+                  <td className="px-4 py-3 font-semibold">
+                    <Link href={`/admin/orders/${o.id}`} className="hover:text-red">{o.number}</Link>
+                  </td>
                   <td className="px-4 py-3 text-navy/60">{o.email}</td>
                   <td className="px-4 py-3">{o.shippingZone ?? "—"}</td>
                   <td className="px-4 py-3">{formatDate(o.createdAt)}</td>
