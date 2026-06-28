@@ -335,6 +335,26 @@ html[lang="th"] .section__title{line-height:1.35}
 .wcard__metric strong{font-family:var(--font-display);font-size:1.3rem;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 .work__note{text-align:center;color:var(--ink-faint);font-size:.82rem;margin-top:28px}
 
+/* Vertical/industry sections (villa, restaurant, …) */
+.vsec__inner{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.vsec--villa{background:radial-gradient(ellipse at 85% 0%,rgba(245,165,36,.14),transparent 55%),radial-gradient(ellipse at 0% 100%,rgba(20,184,166,.12),transparent 55%)}
+.vsec__media{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line-strong);box-shadow:var(--shadow)}
+.vsec__media img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+.vsec__badge{position:absolute;top:18px;right:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  width:118px;height:118px;border-radius:50%;transform:rotate(8deg);color:#241405;
+  background:linear-gradient(135deg,#ffe39a,#e0901a);box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
+.vsec__badge span{font-family:var(--font-display);font-weight:800;font-size:.72rem;letter-spacing:1px}
+.vsec__badge strong{font-family:var(--font-display);font-weight:800;font-size:1.7rem;line-height:.95}
+.vsec__badge em{font-style:normal;font-weight:700;font-size:.6rem;letter-spacing:.5px}
+.vsec__feats{display:grid;gap:12px;margin:22px 0}
+.vsec__feats li{display:flex;align-items:center;gap:12px;color:var(--ink);font-size:1.02rem}
+.vsec__feats .ck{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  color:var(--amber);background:rgba(245,165,36,.14);border:1px solid rgba(245,165,36,.5);font-size:.85rem;font-weight:700}
+.vsec__promo{font-size:1.02rem;color:var(--ink-dim);margin-bottom:22px}
+.vsec__promo strong{font-family:var(--font-display);color:var(--amber);font-size:1.18rem}
+.vsec__cta{display:flex;flex-wrap:wrap;gap:14px}
+@media (max-width:900px){.vsec__inner{grid-template-columns:1fr;gap:30px}.vsec__badge{width:96px;height:96px}.vsec__badge strong{font-size:1.4rem}}
+
 /* phone mockup */
 .phone{width:96px;height:150px;border-radius:18px;background:#0c0a24;border:2px solid rgba(255,255,255,.18);padding:10px 8px;position:relative;box-shadow:0 12px 30px -12px rgba(0,0,0,.7)}
 .phone__notch{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:30px;height:4px;border-radius:3px;background:rgba(255,255,255,.25)}
