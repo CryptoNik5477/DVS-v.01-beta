@@ -38,7 +38,7 @@ python3 -m http.server 8000
 
 ## Le formulaire « Étude gratuite » — comment ça marche
 
-Le formulaire envoie les réponses à **alibazarland@gmail.com**.
+Le formulaire envoie les réponses à **issanwebpower@yahoo.com**.
 
 ### Choix retenu : Netlify Forms (recommandé)
 
@@ -51,7 +51,7 @@ Pourquoi : **zéro backend**, anti-spam intégré (honeypot déjà en place), et
 1. Netlify détecte automatiquement le formulaire `free-study` au premier deploy.
 2. Va dans **Site settings → Forms → Form notifications → Add notification →
    Email notification**.
-3. Mets l'adresse **alibazarland@gmail.com** comme destinataire. Valide.
+3. Mets l'adresse **issanwebpower@yahoo.com** comme destinataire. Valide.
 4. Fais un test depuis le site en ligne : la réponse arrive dans
    **Forms → free-study** ET par email.
 
@@ -60,7 +60,7 @@ Pourquoi : **zéro backend**, anti-spam intégré (honeypot déjà en place), et
 Si tu déploies sur Cloudflare Pages / GitHub Pages / un autre hébergeur,
 Netlify Forms ne fonctionne pas. Bascule alors sur **Formspree** :
 
-1. Crée un compte sur https://formspree.io avec **alibazarland@gmail.com**,
+1. Crée un compte sur https://formspree.io avec **issanwebpower@yahoo.com**,
    crée un formulaire, récupère ton endpoint (ex. `https://formspree.io/f/abcdwxyz`).
 2. Dans `index.html`, sur la balise `<form class="study__form" …>` :
    - remplace `action="#study-success"` par ton endpoint Formspree :
@@ -118,4 +118,4 @@ production à chaque push sur `main` (et au déclenchement manuel).
 - **Couleurs** : variables CSS en haut de `assets/css/style.css` (`:root`).
 - **Textes / traductions** : objet `I18N` dans `assets/js/main.js`.
 - **Coordonnées** : LINE `@albeny254`, tél `+66 83 919 2903`,
-  email `alibazarland@gmail.com` — dans la section `#contact` de `index.html`.
+  email `issanwebpower@yahoo.com` — dans la section `#contact` de `index.html`.
