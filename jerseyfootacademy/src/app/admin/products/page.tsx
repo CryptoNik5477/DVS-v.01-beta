@@ -16,7 +16,9 @@ export default function AdminProductsPage() {
           <p className="text-sm text-navy/60">{products.length} products in the catalog.</p>
         </div>
         <div className="flex gap-2">
-          <a href="/api/admin/products/export" className="btn-outline text-sm">
+          {/* API download route, not a page — Link is not appropriate here. */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <a href="/api/admin/products/export" className="btn-outline text-sm" download>
             <Download size={16} /> Export CSV
           </a>
           <Link href="/admin/products/new" className="btn-primary text-sm">

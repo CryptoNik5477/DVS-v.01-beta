@@ -31,7 +31,9 @@ export interface Customization {
 }
 
 /** Returns the surcharge for a given customization (0 if nothing is flocked). */
-export function customizationSurcharge(c?: Partial<Customization> | null): number {
+export function customizationSurcharge(
+  c?: { name?: string; number?: string } | null,
+): number {
   if (!c) return 0;
   const hasContent = Boolean(c.name?.trim()) || Boolean(c.number?.trim());
   return hasContent ? CUSTOMIZATION_SURCHARGE : 0;
