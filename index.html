@@ -247,29 +247,11 @@
           <div class="ba" data-ba>
             <!-- AFTER (base layer): modern site -->
             <div class="ba__pane ba__after" aria-hidden="true">
-              <div class="mock">
-                <div class="mock__bar"><span></span><span></span><span></span><i>issanwebpower</i></div>
-                <div class="mock__body mock__body--after">
-                  <div class="mb-nav"><b>CAFÉ</b><u></u><u></u><u></u><em>จอง</em></div>
-                  <div class="mb-hero">
-                    <div class="mb-htxt"><h4>กาแฟริมโขง</h4><p></p><p></p><span class="mb-btn">จองโต๊ะ</span></div>
-                    <div class="mb-himg"></div>
-                  </div>
-                  <div class="mb-cards"><div></div><div></div><div></div></div>
-                </div>
-              </div>
+              <img src="assets/img/ba-after.png" alt="ครัวริมโขง บุฟเฟต์ — เว็บไซต์ใหม่ / new website" />
             </div>
             <!-- BEFORE (clipped overlay): dated site -->
             <div class="ba__pane ba__before" data-ba-before>
-              <div class="mock">
-                <div class="mock__bar"><span></span><span></span><span></span><i>old-site.geocities</i></div>
-                <div class="mock__body mock__body--before">
-                  <div class="mbo-title">★ ยินดีต้อนรับ ★ WELCOME ★</div>
-                  <div class="mbo-row"><div class="mbo-img"></div><div class="mbo-lines"><i></i><i></i><i></i><i></i><i></i></div></div>
-                  <div class="mbo-blink">!! โปรโมชั่น CLICK HERE !!</div>
-                  <div class="mbo-counter">visitors: 000142</div>
-                </div>
-              </div>
+              <img src="assets/img/ba-before.png" alt="ครัวริมโขง บุฟเฟต์ — เว็บไซต์เก่า / old website" />
             </div>
 
             <div class="ba__divider" data-ba-divider><button class="ba__handle" type="button" aria-label="compare"><span>‹›</span></button></div>
@@ -488,6 +470,13 @@
             <strong>issanwebpower@yahoo.com</strong>
             <small data-i18n="contact.email">ส่งอีเมลถึงผม</small>
           </a>
+          <a class="contact__card" href="https://www.facebook.com/issanwebpower" target="_blank" rel="noopener">
+            <span class="contact__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+            </span>
+            <strong>Facebook</strong>
+            <small data-i18n="contact.facebook">ติดตามบนเฟซบุ๊ก</small>
+          </a>
         </div>
 
         <!-- LINE QR -->
@@ -500,6 +489,17 @@
               <small data-i18n="contact.qr">สแกนเพื่อเพิ่มเพื่อนบน LINE</small>
             </div>
           </a>
+        </div>
+
+        <!-- Facebook Page Plugin -->
+        <div class="fb-embed">
+          <h3 class="fb-embed__title" data-i18n="contact.fbfollow">ติดตามเราบน Facebook</h3>
+          <div class="fb-embed__frame">
+            <iframe title="Facebook page"
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fissanwebpower&tabs=timeline&width=360&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+              width="360" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+              allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -518,6 +518,7 @@
         <a href="#study" data-i18n="nav.study">ศึกษาฟรี</a>
         <a href="#local" data-i18n="nav.local">ในพื้นที่</a>
         <a href="#contact" data-i18n="nav.contact">ติดต่อ</a>
+        <a href="https://www.facebook.com/issanwebpower" target="_blank" rel="noopener">Facebook</a>
       </div>
       <p class="footer__copy">© <span id="year"></span> ISSANwebpower · Mukdahan, Isan 🇹🇭</p>
     </div>
