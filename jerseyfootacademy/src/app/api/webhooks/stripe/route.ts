@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { stripe, isStripeConfigured } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
+import { sendEmail, emailLayout } from "@/lib/email";
+import { formatPrice } from "@/config/currencies";
+import { siteConfig } from "@/config/site";
 
 /**
  * Stripe webhook — marks orders as PAID when checkout completes.
@@ -47,6 +50,26 @@ export async function POST(req: Request) {
         await prisma.promoCode.update({
           where: { id: order.promoCodeId },
           data: { usageCount: { increment: 1 } },
+        });
+      }
+      // Order confirmation email (best-effort; no-ops without RESEND_API_KEY).
+      if (order.email && order.email.includes("@")) {
+        await sendEmail({
+          to: order.email,
+          subject: `Order ${order.number} confirmed — ${siteConfig.name}`,
+          html: emailLayout(
+            "Thank you for your order! 🎉",
+            `<p style="font-size:15px;line-height:1.6;color:#3b4252">
+               We've received your payment and your order <strong>${order.number}</strong> is being prepared.
+             </p>
+             <p style="font-size:15px;color:#0b132b"><strong>Total paid: ${formatPrice(order.total, "USD")}</strong></p>
+             <p style="margin:24px 0">
+               <a href="${siteConfig.url}/account" style="background:#c8102e;color:#fff;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px">
+                 Track your order
+               </a>
+             </p>
+             <p style="font-size:13px;color:#8a93a6">Ships from ${siteConfig.shipsFrom}. You'll get tracking once it's on the way.</p>`,
+          ),
         });
       }
     } catch {
