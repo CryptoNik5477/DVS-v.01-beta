@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISSANwebpower — เพิ่มการมองเห็นออนไลน์ให้ธุรกิจของคุณ</title>
+  <meta name="description" content="ISSANwebpower — ผู้เชี่ยวชาญจากอีสาน (คำป่าหลาย มุกดาหาร) ช่วยร้านค้าท้องถิ่นให้ถูกค้นเจอออนไลน์ สร้างเว็บไซต์สมัยใหม่ และพัฒนาเครื่องมือภายในธุรกิจ / Boost your local business online. Websites & custom tools." />
+  <meta name="theme-color" content="#0A0820" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ISSANwebpower — Isan × Web" />
+  <meta property="og:description" content="เพิ่มการมองเห็นออนไลน์ให้ธุรกิจของคุณ และเครื่องมือสั่งทำเฉพาะธุรกิจคุณ" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts: Sora (display) + Inter (body) + Noto Sans Thai (Thai) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">ข้ามไปยังเนื้อหา</a>
+
+  <!-- ======================= NAV ======================= -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#hero" aria-label="ISSANwebpower">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28">
+            <path class="brand__naga" d="M4 22 C10 22 9 10 16 10 C23 10 22 22 28 22" fill="none" stroke="url(#bgrad)" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="4" cy="22" r="2.2" fill="#34F5FF"/>
+            <circle cx="28" cy="22" r="2.2" fill="#F5A524"/>
+            <circle cx="16" cy="10" r="2.4" fill="#14B8A6"/>
+            <defs><linearGradient id="bgrad" x1="0" y1="0" x2="32" y2="0">
+              <stop offset="0" stop-color="#34F5FF"/><stop offset=".5" stop-color="#14B8A6"/><stop offset="1" stop-color="#F5A524"/>
+            </linearGradient></defs>
+          </svg>
+        </span>
+        <span class="brand__text">ISSAN<strong>webpower</strong></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#services" data-i18n="nav.services">บริการ</a>
+        <a href="#study" data-i18n="nav.study">ศึกษาฟรี</a>
+        <a href="#local" data-i18n="nav.local">ในพื้นที่</a>
+        <a href="#contact" data-i18n="nav.contact">ติดต่อ</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="group" aria-label="Language / ภาษา">
+          <button class="lang__btn is-active" data-lang="th" type="button" aria-pressed="true">ไทย</button>
+          <span class="lang__sep">/</span>
+          <button class="lang__btn" data-lang="en" type="button" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn--sm btn--ghost nav__cta" href="#study" data-i18n="nav.cta">รับการศึกษาฟรี</a>
+        <button class="nav__burger" type="button" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ======================= HERO ======================= -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <!-- NAGA · DATA — signature SVG -->
+      <div class="naga" aria-hidden="true" data-naga>
+        <svg viewBox="0 0 760 760" preserveAspectRatio="xMidYMid meet" role="img">
+          <defs>
+            <linearGradient id="naga-grad" x1="0" y1="0" x2="760" y2="760" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#34F5FF"/>
+              <stop offset=".45" stop-color="#14B8A6"/>
+              <stop offset="1" stop-color="#F5A524"/>
+            </linearGradient>
+            <linearGradient id="naga-flow" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#34F5FF" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#EAFBFF"/>
+              <stop offset="1" stop-color="#34F5FF" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="naga-blur" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="6"/>
+            </filter>
+          </defs>
+
+          <!-- ikat / mudmee diamonds drifting in the body -->
+          <g class="naga__scales" stroke="url(#naga-grad)" stroke-width="1.4" fill="none" opacity=".55">
+            <path d="M180 250 l14 14 -14 14 -14 -14 z"/>
+            <path d="M250 350 l16 16 -16 16 -16 -16 z"/>
+            <path d="M340 230 l13 13 -13 13 -13 -13 z"/>
+            <path d="M470 300 l15 15 -15 15 -15 -15 z"/>
+            <path d="M540 420 l13 13 -13 13 -13 -13 z"/>
+            <path d="M420 470 l16 16 -16 16 -16 -16 z"/>
+            <path d="M300 520 l13 13 -13 13 -13 -13 z"/>
+          </g>
+
+          <!-- glowing under-body -->
+          <path class="naga__halo" filter="url(#naga-blur)" fill="none" stroke="url(#naga-grad)" stroke-width="10" stroke-linecap="round"
+            d="M70 600 C 170 540 150 410 250 400 C 360 388 360 300 300 250 C 250 208 300 140 390 150 C 500 162 470 270 540 300 C 640 342 700 250 700 180"/>
+
+          <!-- main serpent body -->
+          <path class="naga__body" fill="none" stroke="url(#naga-grad)" stroke-width="4" stroke-linecap="round"
+            d="M70 600 C 170 540 150 410 250 400 C 360 388 360 300 300 250 C 250 208 300 140 390 150 C 500 162 470 270 540 300 C 640 342 700 250 700 180"/>
+
+          <!-- animated data flow along the body -->
+          <path class="naga__flow" fill="none" stroke="url(#naga-flow)" stroke-width="3.2" stroke-linecap="round"
+            d="M70 600 C 170 540 150 410 250 400 C 360 388 360 300 300 250 C 250 208 300 140 390 150 C 500 162 470 270 540 300 C 640 342 700 250 700 180"/>
+
+          <!-- circuit branches -->
+          <g class="naga__circuit" stroke="url(#naga-grad)" stroke-width="1.6" fill="none" opacity=".5" stroke-linecap="round">
+            <path d="M250 400 l-60 30 v34"/>
+            <path d="M300 250 l64 -22"/>
+            <path d="M540 300 l52 26"/>
+            <path d="M390 150 l-2 -56"/>
+          </g>
+
+          <!-- data nodes -->
+          <g class="naga__nodes">
+            <circle cx="250" cy="400" r="5.5"/>
+            <circle cx="300" cy="250" r="5.5"/>
+            <circle cx="390" cy="150" r="5.5"/>
+            <circle cx="540" cy="300" r="5.5"/>
+            <circle cx="190" cy="464" r="3.5"/>
+            <circle cx="364" cy="228" r="3.5"/>
+            <circle cx="592" cy="326" r="3.5"/>
+            <circle cx="388" cy="94" r="3.5"/>
+          </g>
+
+          <!-- naga head -->
+          <g class="naga__head">
+            <path fill="none" stroke="url(#naga-grad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"
+              d="M700 180 q34 -8 46 -42 q-30 14 -46 6 q10 -30 -6 -52 q-14 26 -30 26 q-2 -22 -26 -28 q8 22 -4 36"/>
+            <circle class="naga__eye" cx="708" cy="150" r="4.4"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="container hero__content">
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">อีสาน × เว็บดีไซน์</p>
+        <h1 class="hero__title">
+          <span data-i18n="hero.title1">เพิ่มการมองเห็นออนไลน์</span><br/>
+          <span class="grad-text" data-i18n="hero.title2">ให้ธุรกิจของคุณ</span>
+        </h1>
+        <p class="hero__sub" data-i18n="hero.sub">และเครื่องมือสั่งทำเฉพาะสำหรับธุรกิจของคุณ — ออกแบบจากอีสาน เพื่อร้านค้าท้องถิ่น</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#study" data-i18n="hero.cta1">รับการศึกษาฟรี</a>
+          <a class="btn btn--ghost" href="#services" data-i18n="hero.cta2">ดูบริการ</a>
+        </div>
+        <ul class="hero__chips" aria-hidden="false">
+          <li data-i18n="hero.chip1">Google Business &amp; แผนที่</li>
+          <li data-i18n="hero.chip2">เว็บไซต์ + จองออนไลน์</li>
+          <li data-i18n="hero.chip3">แอป &amp; เครื่องมือภายใน</li>
+        </ul>
+      </div>
+
+      <a class="hero__scroll" href="#services" aria-label="scroll">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- mudmee separator -->
+    <div class="ikat-sep" aria-hidden="true"></div>
+
+    <!-- ======================= SERVICES ======================= -->
+    <section class="section services" id="services">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__kicker" data-i18n="services.kicker">สิ่งที่ผมทำ</p>
+          <h2 class="section__title" data-i18n="services.title">สามเสาหลักของบริการ</h2>
+          <p class="section__lead" data-i18n="services.lead">ครบทุกขั้นตอน ตั้งแต่ทำให้ลูกค้าเจอคุณ ไปจนถึงเครื่องมือที่ทำให้ธุรกิจคุณเดินได้เอง</p>
+        </header>
+
+        <div class="cards">
+          <article class="card" data-tilt>
+            <div class="card__num">01</div>
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="20" r="8"/><path d="M24 28c-8 0-14 5-14 12M24 28c8 0 14 5 14 12"/><path d="M40 8l-4 4M8 8l4 4"/>
+              </svg>
+            </div>
+            <h3 class="card__title" data-i18n="services.s1.title">เพิ่มการมองเห็นออนไลน์</h3>
+            <p class="card__text" data-i18n="services.s1.text">Google Business, SEO, Google Maps และโซเชียลมีเดีย — ให้ลูกค้าค้นเจอร้านคุณก่อนใคร</p>
+            <ul class="card__list">
+              <li data-i18n="services.s1.li1">ตั้งค่า Google Business Profile</li>
+              <li data-i18n="services.s1.li2">SEO &amp; Google Maps</li>
+              <li data-i18n="services.s1.li3">Facebook · Instagram · TikTok</li>
+            </ul>
+          </article>
+
+          <article class="card" data-tilt>
+            <div class="card__num">02</div>
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="7" y="9" width="34" height="26" rx="3"/><path d="M7 16h34M14 42h20"/><circle cx="11.5" cy="12.5" r="1"/>
+              </svg>
+            </div>
+            <h3 class="card__title" data-i18n="services.s2.title">สร้าง &amp; แก้ไขเว็บไซต์</h3>
+            <p class="card__text" data-i18n="services.s2.text">เว็บไซต์สมัยใหม่ เปิดบนมือถือลื่นไหล พร้อมระบบจองโดยตรง ไม่ต้องผ่านคนกลาง</p>
+            <ul class="card__list">
+              <li data-i18n="services.s2.li1">ดีไซน์ทันสมัย Mobile-first</li>
+              <li data-i18n="services.s2.li2">ระบบจองโดยตรง</li>
+              <li data-i18n="services.s2.li3">โหลดไว · รองรับ SEO</li>
+            </ul>
+          </article>
+
+          <article class="card" data-tilt>
+            <div class="card__num">03</div>
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18l12 12M30 6l12 12-12 12"/><path d="M27 4 21 44"/>
+              </svg>
+            </div>
+            <h3 class="card__title" data-i18n="services.s3.title">แอป &amp; เครื่องมือภายใน</h3>
+            <p class="card__text" data-i18n="services.s3.text">พัฒนาเครื่องมือเฉพาะธุรกิจ: จองคิว, ระบบคิว, สต็อก, ออเดอร์ และการจัดการร้าน</p>
+            <ul class="card__list">
+              <li data-i18n="services.s3.li1">ระบบจอง &amp; คิว</li>
+              <li data-i18n="services.s3.li2">จัดการสต็อก &amp; ออเดอร์</li>
+              <li data-i18n="services.s3.li3">แดชบอร์ดจัดการร้าน</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= FREE STUDY (most important) ======================= -->
+    <section class="section study" id="study">
+      <div class="container study__inner">
+        <div class="study__intro">
+          <p class="section__kicker section__kicker--accent" data-i18n="study.kicker">ข้อเสนอพิเศษ</p>
+          <h2 class="section__title" data-i18n="study.title">รับ “การศึกษาฟรี” สำหรับร้านของคุณ</h2>
+          <p class="section__lead" data-i18n="study.lead">บอกข้อมูลร้านและลิงก์ออนไลน์ทั้งหมดของคุณ แล้วผมจะวิเคราะห์การมองเห็นออนไลน์ของคุณ พร้อมคำแนะนำที่ทำได้จริง — ฟรี ไม่มีข้อผูกมัด</p>
+          <ul class="study__perks">
+            <li data-i18n="study.perk1">✓ วิเคราะห์ Google &amp; โซเชียลของคุณ</li>
+            <li data-i18n="study.perk2">✓ จุดที่ปรับปรุงได้ทันที</li>
+            <li data-i18n="study.perk3">✓ ตอบกลับเป็นภาษาไทยหรืออังกฤษ</li>
+          </ul>
+        </div>
+
+        <!-- Netlify Forms. To deploy elsewhere, see README (Formspree fallback). -->
+        <form
+          class="study__form"
+          name="free-study"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="#study-success"
+        >
+          <input type="hidden" name="form-name" value="free-study" />
+          <p class="hp" aria-hidden="true">
+            <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+          </p>
+
+          <div class="field">
+            <label for="biz-name" data-i18n="form.name">ชื่อร้าน / ธุรกิจ <span class="req">*</span></label>
+            <input id="biz-name" name="business_name" type="text" required autocomplete="organization"
+              data-i18n-ph="form.name.ph" placeholder="เช่น ร้านกาแฟริมโขง" />
+          </div>
+
+          <div class="field">
+            <label for="biz-type" data-i18n="form.type">ประเภทธุรกิจ <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select id="biz-type" name="business_type" required>
+                <option value="" data-i18n="form.type.opt0">— เลือก —</option>
+                <option value="hotel" data-i18n="form.type.hotel">โรงแรม / ที่พัก</option>
+                <option value="restaurant" data-i18n="form.type.restaurant">ร้านอาหาร</option>
+                <option value="cafe" data-i18n="form.type.cafe">คาเฟ่</option>
+                <option value="shop" data-i18n="form.type.shop">ร้านค้า / บูทีค</option>
+                <option value="other" data-i18n="form.type.other">อื่น ๆ</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="biz-city" data-i18n="form.city">เมือง / จังหวัด <span class="req">*</span></label>
+            <input id="biz-city" name="city" type="text" required
+              data-i18n-ph="form.city.ph" placeholder="เช่น มุกดาหาร" />
+          </div>
+
+          <div class="field field--full">
+            <label for="biz-links" data-i18n="form.links">ลิงก์ออนไลน์ทั้งหมดของคุณ <span class="req">*</span></label>
+            <textarea id="biz-links" name="online_links" rows="4" required
+              data-i18n-ph="form.links.ph"
+              placeholder="Google Maps, Facebook, เว็บไซต์, Instagram, TikTok, LINE, Agoda…"></textarea>
+            <small class="field__hint" data-i18n="form.links.hint">วางลิงก์ทั้งหมดที่มี บรรทัดละหนึ่งลิงก์ก็ได้</small>
+          </div>
+
+          <div class="field field--full">
+            <label for="biz-contact" data-i18n="form.contact">ช่องทางติดต่อกลับ <span class="req">*</span></label>
+            <input id="biz-contact" name="contact" type="text" required
+              data-i18n-ph="form.contact.ph" placeholder="โทรศัพท์ / LINE ID / อีเมล" />
+          </div>
+
+          <div class="field field--full study__submit">
+            <button class="btn btn--primary btn--block" type="submit" data-i18n="form.submit">รับการศึกษาฟรีของฉัน</button>
+            <p class="study__privacy" data-i18n="form.privacy">ข้อมูลของคุณจะถูกส่งถึงผมโดยตรง และใช้เพื่อติดต่อกลับเท่านั้น</p>
+          </div>
+        </form>
+
+        <!-- success message (shown after submit) -->
+        <div class="study__success" id="study-success" role="status" hidden>
+          <div class="study__success-card">
+            <svg viewBox="0 0 48 48" width="56" height="56" fill="none" stroke="#34F5FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="20"/><path d="M15 24l6 6 12-13"/>
+            </svg>
+            <h3 data-i18n="form.ok.title">ขอบคุณครับ! ได้รับข้อมูลแล้ว</h3>
+            <p data-i18n="form.ok.text">ผมจะวิเคราะห์ร้านของคุณและติดต่อกลับเร็ว ๆ นี้ทางช่องทางที่คุณให้ไว้</p>
+            <a class="btn btn--ghost btn--sm" href="#study" data-i18n="form.ok.back">ส่งร้านอื่นอีก</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ikat-sep" aria-hidden="true"></div>
+
+    <!-- ======================= LOCAL ======================= -->
+    <section class="section local" id="local">
+      <div class="container local__inner">
+        <div class="local__art" aria-hidden="true">
+          <div class="local__pin">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M32 58s20-18 20-34a20 20 0 1 0-40 0c0 16 20 34 20 34Z" stroke="url(#naga-grad)" stroke-width="2.6"/>
+              <circle cx="32" cy="24" r="7" stroke="#F5A524" stroke-width="2.6"/>
+            </svg>
+            <span class="local__ping"></span>
+          </div>
+        </div>
+        <div class="local__text">
+          <p class="section__kicker" data-i18n="local.kicker">ในพื้นที่ &amp; ใกล้คุณ</p>
+          <h2 class="section__title" data-i18n="local.title">ผมเป็นคนอีสาน — ทำงานถึงที่</h2>
+          <p class="section__lead" data-i18n="local.lead">ผมอยู่ที่คำป่าหลาย มุกดาหาร ออกไปพบลูกค้าถึงร้าน เข้าใจธุรกิจท้องถิ่น และพูดได้ทั้งไทยและอังกฤษ</p>
+          <ul class="local__facts">
+            <li><strong data-i18n="local.f1.k">ฐานที่ตั้ง</strong><span data-i18n="local.f1.v">คำป่าหลาย, มุกดาหาร (อีสาน)</span></li>
+            <li><strong data-i18n="local.f2.k">บริการถึงที่</strong><span data-i18n="local.f2.v">เดินทางไปพบคุณถึงร้าน</span></li>
+            <li><strong data-i18n="local.f3.k">ภาษา</strong><span data-i18n="local.f3.v">ไทย &amp; อังกฤษ</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CONTACT ======================= -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__kicker" data-i18n="contact.kicker">มาคุยกัน</p>
+          <h2 class="section__title" data-i18n="contact.title">ติดต่อผมได้เลย</h2>
+        </header>
+        <div class="contact__grid">
+          <a class="contact__card" href="https://line.me/R/ti/p/@albeny254" target="_blank" rel="noopener">
+            <span class="contact__ic">LINE</span>
+            <strong>@albeny254</strong>
+            <small data-i18n="contact.line">แชทกับผมบน LINE</small>
+          </a>
+          <a class="contact__card" href="tel:+66839192903">
+            <span class="contact__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            </span>
+            <strong>+66 83 919 2903</strong>
+            <small data-i18n="contact.phone">โทร / ข้อความ</small>
+          </a>
+          <a class="contact__card" href="mailto:alibazarland@gmail.com">
+            <span class="contact__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            <strong>alibazarland@gmail.com</strong>
+            <small data-i18n="contact.email">ส่งอีเมลถึงผม</small>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__text">ISSAN<strong>webpower</strong></span>
+        <p data-i18n="footer.tag">อีสาน × เว็บ — เชื่อมร้านท้องถิ่นสู่โลกออนไลน์</p>
+      </div>
+      <div class="footer__links">
+        <a href="#services" data-i18n="nav.services">บริการ</a>
+        <a href="#study" data-i18n="nav.study">ศึกษาฟรี</a>
+        <a href="#local" data-i18n="nav.local">ในพื้นที่</a>
+        <a href="#contact" data-i18n="nav.contact">ติดต่อ</a>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> ISSANwebpower · Mukdahan, Isan 🇹🇭</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
