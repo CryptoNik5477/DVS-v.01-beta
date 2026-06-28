@@ -1,0 +1,103 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#777;font-family:"Prompt",sans-serif;color:#fff}
+  .wrap{margin:24px}
+  .post{position:relative;overflow:hidden}
+  .pill{display:inline-block;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:99px;font-weight:600}
+  .cta{display:inline-block;color:#1a0f06;font-weight:800;border-radius:99px;box-shadow:0 12px 28px -10px rgba(0,0,0,.6)}
+  h1{font-family:"Sora","Prompt";font-weight:800;line-height:1.04}
+  .sub{font-weight:700}
+  .credit{font-family:"Sora";font-weight:700}
+  .credit b{}.credit .g{background:linear-gradient(120deg,#34F5FF,#2DD4BF 45%,#F5A524);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* square 1080 */
+  .post-sq{width:1080px;height:1080px}
+  .post-sq .hero{height:600px;display:flex;align-items:center;justify-content:center;gap:34px;font-size:210px;position:relative}
+  .post-sq .fade{position:absolute;inset:0}
+  .post-sq .pill{position:absolute;left:56px;top:52px;font-size:26px;padding:12px 26px;z-index:3}
+  .post-sq .b{position:absolute;left:0;right:0;bottom:0;padding:0 60px 60px;text-align:center}
+  .post-sq h1{font-size:88px;margin-top:-60px}
+  .post-sq .sub{font-size:46px;margin:18px 0}
+  .post-sq .meta{font-size:30px;opacity:.85;margin-bottom:28px}
+  .post-sq .cta{font-size:42px;padding:22px 52px}
+  .post-sq .credit{font-size:28px;margin-top:34px}
+
+  /* landscape 1200x630 */
+  .post-ls{width:1200px;height:630px;display:flex}
+  .post-ls .emoR{width:430px;flex:none;display:flex;align-items:center;justify-content:center;font-size:150px;flex-wrap:wrap;gap:10px;position:relative}
+  .post-ls .cL{flex:1;padding:60px 56px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+  .post-ls .pill{align-self:flex-start;font-size:22px;padding:9px 20px}
+  .post-ls h1{font-size:66px;margin:14px 0 8px}
+  .post-ls .sub{font-size:38px;margin-bottom:12px}
+  .post-ls .meta{font-size:26px;opacity:.85;margin-bottom:26px}
+  .post-ls .cta{align-self:flex-start;font-size:30px;padding:17px 38px}
+  .post-ls .credit{position:absolute;left:56px;bottom:34px;font-size:22px}
+</style></head>
+<body>
+<div id="root"></div>
+<script>
+const BIZ = [
+  { id:'cafe', pill:'คาเฟ่ & เบเกอรี่ ริมโขง',
+    name:'ละมุน <span style="color:#e7b25a">คาเฟ่</span>', sub:'กาแฟ + เค้ก เริ่ม 89.-',
+    meta:'☕ ริมโขง · มุกดาหาร', cta:'📋 ดูเมนู',
+    emojis:['☕','🥐','🧁'],
+    bg:'linear-gradient(180deg,#241813,#3a241a)',
+    hero:'radial-gradient(circle at 50% 40%,#6b4326,#311e12)',
+    accent:'linear-gradient(120deg,#e7b25a,#c2772b)' },
+  { id:'hotel', pill:'ที่พักริมโขง · มุกดาหาร',
+    name:'โขงดาว <span style="color:#ffcf6b">รีสอร์ต</span>', sub:'ห้องพัก เริ่ม 690.-/คืน',
+    meta:'★★★★★ 4.8 · วิวพระอาทิตย์ตก', cta:'🛏️ จองห้องพัก',
+    emojis:['🏨','🌴','🌅'],
+    bg:'linear-gradient(180deg,#0c1822,#102b39)',
+    hero:'radial-gradient(circle at 50% 40%,#155a73,#0a1c28)',
+    accent:'linear-gradient(120deg,#ffcf6b,#e0a52a)' },
+  { id:'shop', pill:'ผ้าไหมอีสาน & ของฝาก',
+    name:'แพรไหม <span style="color:#ffb3e0">บูทีค</span>', sub:'ผ้าไหมแท้ · ลดสูงสุด 30%',
+    meta:'🚚 ส่งทั่วไทย · เก็บเงินปลายทาง', cta:'🛍️ ช้อปออนไลน์',
+    emojis:['👗','🧣','👜'],
+    bg:'linear-gradient(180deg,#1f0f24,#341538)',
+    hero:'radial-gradient(circle at 50% 40%,#5a1f5e,#2a0f33)',
+    accent:'linear-gradient(120deg,#ffd36b,#ff7bd5)' },
+];
+const credit = '<span class="g">🐉</span> ตัวอย่างผลงาน · ISSAN<span class="g">webpower</span>';
+const root = document.getElementById('root');
+for (const x of BIZ){
+  // square
+  root.insertAdjacentHTML('beforeend', `
+  <div class="wrap"><div class="post post-sq" id="${x.id}-sq" style="background:${x.bg}">
+    <div class="hero" style="background:${x.hero}">
+      ${x.emojis.map(e=>`<span>${e}</span>`).join('')}
+      <div class="fade" style="background:linear-gradient(180deg,rgba(0,0,0,0) 40%, ${cssBottom(x.bg)} 100%)"></div>
+      <span class="pill">${x.pill}</span>
+    </div>
+    <div class="b">
+      <h1>${x.name}</h1>
+      <div class="sub" style="background:${x.accent};-webkit-background-clip:text;background-clip:text;color:transparent">${x.sub}</div>
+      <div class="meta">${x.meta}</div>
+      <span class="cta" style="background:${x.accent}">${x.cta}</span>
+      <div class="credit">${credit}</div>
+    </div>
+  </div></div>`);
+  // landscape
+  root.insertAdjacentHTML('beforeend', `
+  <div class="wrap"><div class="post post-ls" id="${x.id}-ls" style="background:${x.bg}">
+    <div class="cL">
+      <span class="pill">${x.pill}</span>
+      <h1>${x.name}</h1>
+      <div class="sub" style="background:${x.accent};-webkit-background-clip:text;background-clip:text;color:transparent">${x.sub}</div>
+      <div class="meta">${x.meta}</div>
+      <span class="cta" style="background:${x.accent}">${x.cta}</span>
+      <div class="credit">${credit}</div>
+    </div>
+    <div class="emoR" style="background:${x.hero}">${x.emojis.map(e=>`<span>${e}</span>`).join('')}</div>
+  </div></div>`);
+}
+function cssBottom(g){ // extract the darker end colour of the bg gradient
+  const m = g.match(/#([0-9a-fA-F]{6})/g); return m ? m[m.length-1] : '#000';
+}
+</script>
+</body></html>
