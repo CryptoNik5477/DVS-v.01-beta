@@ -35,6 +35,7 @@ export async function middleware(req: NextRequest) {
     "/api/checkout",
     "/api/reviews",
     "/api/account/forgot",
+    "/api/contact",
   ];
   if (req.method === "POST" && rateLimitedPaths.some((p) => pathname.startsWith(p))) {
     if (rateLimited(`${ip}:${pathname}`)) {

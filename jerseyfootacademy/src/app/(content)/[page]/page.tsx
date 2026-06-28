@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { ContactForm } from "@/components/contact-form";
 import { getContentPage, contentPageKeys } from "@/data/content";
 
 /**
@@ -38,6 +39,12 @@ export default async function ContentPage({ params }: { params: Promise<{ page: 
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      {page === "contact" && (
+        <div className="mt-8">
+          <ContactForm />
+        </div>
+      )}
     </div>
   );
 }
