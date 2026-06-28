@@ -91,8 +91,8 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
         </div>
       </div>
 
-      {/* Customizer */}
-      {product.customizable && (
+      {/* Customizer (enabled unless explicitly disabled) */}
+      {product.customizable !== false && (
         <div className="rounded-xl border border-navy/10 bg-white p-4">
           <label className="flex cursor-pointer items-center gap-2 text-sm font-semibold">
             <input
