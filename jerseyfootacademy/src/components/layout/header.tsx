@@ -12,6 +12,7 @@ import { childrenOf } from "@/data/categories";
 
 export function Header() {
   const t = useTranslations("nav");
+  const tu = useTranslations("ui");
   const [open, setOpen] = useState(false);
   const continents = childrenOf(undefined).filter((c) => c.type === "CONTINENT");
 
@@ -27,9 +28,7 @@ export function Header() {
       {/* Top utility bar */}
       <div className="bg-navy text-white/80">
         <div className="container-page flex h-9 items-center justify-between text-xs">
-          <p className="hidden sm:block">
-            ✈️ Worldwide shipping from Thailand · Free standard shipping over $150
-          </p>
+          <p className="hidden sm:block">✈️ {tu("shipBanner")}</p>
           <div className="flex items-center gap-1">
             <LanguageSwitcher />
             <span className="text-white/20">|</span>

@@ -8,7 +8,7 @@ import { Reviews } from "@/components/product/reviews";
 import { SizeGuide } from "@/components/product/size-guide";
 import { ProductBadges } from "@/components/ui/badges";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { products, productBySlug } from "@/data/products";
 import { localizeProduct } from "@/data/product-i18n";
 import { categoryBySlug, ancestorsOf } from "@/data/categories";
@@ -47,14 +47,16 @@ export default async function ProductPage({ params }: Params) {
   if (!product) notFound();
 
   const locale = await getLocale();
+  const tu = await getTranslations("ui");
+  const tn = await getTranslations("nav");
   const localized = localizeProduct(product, locale);
   const club = categoryBySlug.get(product.categorySlug);
   const rating = ratingFor(slug);
   const price = (product.salePrice ?? product.basePrice) / 100;
 
   const crumbs = [
-    { href: "/", label: "Home" },
-    { href: "/catalog", label: "Catalog" },
+    { href: "/", label: tu("home") },
+    { href: "/catalog", label: tn("catalog") },
     ...(club ? ancestorsOf(club.slug).map((n) => ({ href: `/catalog/${n.slug}`, label: n.name })) : []),
   ];
 
@@ -119,13 +121,13 @@ export default async function ProductPage({ params }: Params) {
 
       {/* Description */}
       <section className="mt-14 max-w-3xl">
-        <h2 className="mb-3 font-display text-2xl font-extrabold">Description</h2>
+        <h2 className="mb-3 font-display text-2xl font-extrabold">{tu("description")}</h2>
         <p className="text-navy/70">{localized.description}</p>
         <ul className="mt-4 grid gap-2 text-sm text-navy/70 sm:grid-cols-2">
-          {product.season && <li>📅 Season: {product.season}</li>}
-          {product.competition && <li>🏆 Competition: {product.competition}</li>}
-          <li>🧵 Premium AeroDry fabric</li>
-          <li>✈️ Ships worldwide from Thailand</li>
+          {product.season && <li>📅 {tu("season")}: {product.season}</li>}
+          {product.competition && <li>🏆 {tu("competition")}: {product.competition}</li>}
+          <li>🧵 {tu("premiumFabric")}</li>
+          <li>✈️ {tu("shipsWorldwide")}</li>
         </ul>
       </section>
 

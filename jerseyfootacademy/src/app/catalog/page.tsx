@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { ProductGrid } from "@/components/product/product-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -13,18 +14,19 @@ export const metadata: Metadata = {
     "Browse our full catalog of football jerseys by continent, country, city and club, plus national team kits.",
 };
 
-export default function CatalogPage() {
+export default async function CatalogPage() {
+  const tu = await getTranslations("ui");
   const continents = categories.filter((c) => c.type === "CONTINENT");
   const nationalRoot = categories.find((c) => c.slug === "national-teams");
 
   return (
     <div className="container-page py-8">
-      <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/catalog", label: "Catalog" }]} />
-      <h1 className="mt-3 font-display text-3xl font-extrabold">Catalog</h1>
-      <p className="mt-1 text-navy/60">Browse by continent, then drill down to your club.</p>
+      <Breadcrumbs items={[{ href: "/", label: tu("home") }, { href: "/catalog", label: tu("catalogTitle") }]} />
+      <h1 className="mt-3 font-display text-3xl font-extrabold">{tu("catalogTitle")}</h1>
+      <p className="mt-1 text-navy/60">{tu("catalogIntro")}</p>
 
       <section className="mt-8">
-        <SectionHeader title="By Continent" />
+        <SectionHeader title={tu("byContinent")} />
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
           {continents.map((c) => (
             <Link
@@ -44,14 +46,14 @@ export default function CatalogPage() {
               href="/catalog/national-teams"
               className="group relative flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-navy text-center"
             >
-              <span className="p-3 text-sm font-bold text-gold">National Teams →</span>
+              <span className="p-3 text-sm font-bold text-gold">{tu("nationalTeamsCta")}</span>
             </Link>
           )}
         </div>
       </section>
 
       <section className="mt-12">
-        <SectionHeader title="All Jerseys" subtitle={`${products.length} products`} />
+        <SectionHeader title={tu("allJerseys")} subtitle={`${products.length} ${tu("products")}`} />
         <ProductGrid products={products} />
       </section>
     </div>

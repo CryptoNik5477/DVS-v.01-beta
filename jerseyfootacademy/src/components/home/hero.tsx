@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export async function Hero() {
   const t = await getTranslations("home");
+  const tu = await getTranslations("ui");
 
   return (
     <section className="relative overflow-hidden bg-navy text-white">
@@ -41,15 +42,15 @@ export async function Hero() {
           <div className="mt-10 flex gap-8 text-sm">
             <div>
               <p className="font-display text-2xl font-bold gold-text">120+</p>
-              <p className="text-white/50">Clubs & Nations</p>
+              <p className="text-white/50">{tu("statClubs")}</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold gold-text">6</p>
-              <p className="text-white/50">Continents shipped</p>
+              <p className="text-white/50">{tu("statContinents")}</p>
             </div>
             <div>
               <p className="font-display text-2xl font-bold gold-text">4.8★</p>
-              <p className="text-white/50">Fan rating</p>
+              <p className="text-white/50">{tu("statRating")}</p>
             </div>
           </div>
         </div>

@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Star } from "lucide-react";
 import { countryOptions } from "@/config/countries";
 
 export function ReviewForm({ productSlug }: { productSlug: string }) {
+  const t = useTranslations("ui");
   const [rating, setRating] = useState(5);
   const [hover, setHover] = useState(0);
   const [form, setForm] = useState({ authorName: "", country: "TH", comment: "" });
@@ -36,14 +38,14 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
   if (status === "ok") {
     return (
       <div className="rounded-xl bg-green-50 p-5 text-sm text-green-700 ring-1 ring-green-200">
-        🎉 Thanks for your review! It will appear once approved by our team.
+        🎉 {t("reviewThanks")}
       </div>
     );
   }
 
   return (
     <form onSubmit={onSubmit} className="rounded-xl bg-white p-5 shadow-soft ring-1 ring-navy/5">
-      <h3 className="mb-3 font-display text-lg font-extrabold">Write a review</h3>
+      <h3 className="mb-3 font-display text-lg font-extrabold">{t("writeReview")}</h3>
 
       <div className="mb-3 flex items-center gap-1">
         {Array.from({ length: 5 }).map((_, i) => (
@@ -66,7 +68,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
       <div className="grid gap-3 sm:grid-cols-2">
         <input
           required
-          placeholder="Your name"
+          placeholder={t("yourName")}
           value={form.authorName}
           onChange={(e) => setForm({ ...form, authorName: e.target.value })}
           className={input}
@@ -84,7 +86,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
       <textarea
         required
         rows={4}
-        placeholder="Share your thoughts about this jersey…"
+        placeholder={t("yourThoughts")}
         value={form.comment}
         onChange={(e) => setForm({ ...form, comment: e.target.value })}
         className={`${input} mt-3`}
@@ -93,7 +95,7 @@ export function ReviewForm({ productSlug }: { productSlug: string }) {
       {error && <p className="mt-2 text-sm text-red">{error}</p>}
 
       <button type="submit" disabled={status === "loading"} className="btn-primary mt-4">
-        {status === "loading" ? "Submitting…" : "Submit review"}
+        {status === "loading" ? `${t("submitReview")}…` : t("submitReview")}
       </button>
     </form>
   );

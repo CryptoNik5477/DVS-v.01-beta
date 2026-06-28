@@ -2,6 +2,7 @@
 
 import { Heart } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { useFavorites } from "@/lib/favorites-store";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +18,7 @@ export function FavoriteButton({
   size?: number;
   showLabel?: boolean;
 }) {
+  const t = useTranslations("ui");
   const toggle = useFavorites((s) => s.toggle);
   const slugs = useFavorites((s) => s.slugs);
   const [mounted, setMounted] = useState(false);
@@ -41,7 +43,7 @@ export function FavoriteButton({
       )}
     >
       <Heart size={size} className={active ? "fill-red text-red" : "text-navy/60"} />
-      {showLabel && <span className="text-sm font-semibold">{active ? "Saved" : "Save"}</span>}
+      {showLabel && <span className="text-sm font-semibold">{active ? t("saved") : t("save")}</span>}
     </button>
   );
 }

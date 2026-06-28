@@ -13,6 +13,7 @@ import { siteConfig } from "@/config/site";
 
 export default async function HomePage() {
   const t = await getTranslations("home");
+  const tu = await getTranslations("ui");
 
   const bestSellers = products.filter((p) => p.isBestSeller).slice(0, 8);
   const newArrivals = products.filter((p) => p.isNew).slice(0, 8);
@@ -32,10 +33,7 @@ export default async function HomePage() {
             <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">
               {t("worldCupPromo")}
             </h2>
-            <p className="mt-3 max-w-md text-white/70">
-              Gear up for the biggest tournament ever — 48 nations, one stage. Pre-order official
-              national team kits now.
-            </p>
+            <p className="mt-3 max-w-md text-white/70">{tu("worldCupBandText")}</p>
             <Link href="/world-cup" className="btn-gold mt-6">
               {t("shopWorldCup")}
             </Link>
