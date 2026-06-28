@@ -65,6 +65,18 @@
       "work.c3.text": "แดชบอร์ดจัดการกะ สต็อก และยอดขาย ในที่เดียว",
       "work.note": "* ตัวอย่างประกอบเพื่อสาธิต — เปลี่ยนเป็นผลงานจริงของคุณได้",
 
+      "villa.kicker": "บริการเฉพาะธุรกิจ · ให้เช่าวิลล่า",
+      "villa.title": "เว็บไซต์ให้เช่าวิลล่า ครบจบในที่เดียว",
+      "villa.lead": "เว็บไซต์สวยระดับพรีเมียมสำหรับวิลล่าให้เช่า — ลูกค้าจองและชำระเงินได้เองบนเว็บ ไม่ต้องผ่านคนกลาง พร้อมระบบที่ทำให้ถูกค้นเจอบน Google",
+      "villa.f1": "ระบบจองตรงบนเว็บไซต์ · Direct booking",
+      "villa.f2": "ชำระเงินออนไลน์ได้ทันที · Online payment",
+      "villa.f3": "SEO + Google Maps รวมอยู่แล้ว",
+      "villa.f4": "แกลเลอรีรูป & รองรับมือถือ 100%",
+      "villa.promo": "โปรซัมเมอร์พิเศษ เริ่มเพียง ฿3,900",
+      "villa.valid": "· ถึง 31 ก.ค. 2026",
+      "villa.cta": "รับข้อเสนอนี้",
+      "villa.cta2": "สอบถามเพิ่มเติม",
+
       "study.kicker": "ข้อเสนอพิเศษ",
       "study.title": "รับ “การศึกษาฟรี” สำหรับร้านของคุณ",
       "study.lead": "บอกข้อมูลร้านและลิงก์ออนไลน์ทั้งหมดของคุณ แล้วผมจะวิเคราะห์การมองเห็นออนไลน์ของคุณ พร้อมคำแนะนำที่ทำได้จริง — ฟรี ไม่มีข้อผูกมัด",
@@ -174,6 +186,18 @@
       "work.c3.title": "Staff management system",
       "work.c3.text": "One dashboard for shifts, stock and sales.",
       "work.note": "* Illustrative samples for demo — replace with your real work.",
+
+      "villa.kicker": "Industry solution · Villa rental",
+      "villa.title": "All-in-one villa rental website",
+      "villa.lead": "A premium website for your rental villa — guests book and pay directly online, no middleman, plus everything to get found on Google.",
+      "villa.f1": "Direct booking on your site",
+      "villa.f2": "Instant online payment",
+      "villa.f3": "SEO + Google Maps included",
+      "villa.f4": "Photo gallery & 100% mobile-ready",
+      "villa.promo": "Summer special from ฿3,900",
+      "villa.valid": "· until 31 July 2026",
+      "villa.cta": "Get this offer",
+      "villa.cta2": "Ask a question",
 
       "study.kicker": "Special offer",
       "study.title": "Get a free study for your shop",
@@ -294,7 +318,7 @@
 
     // reveal on scroll
     const revealEls = document.querySelectorAll(
-      ".section__head, .card, .ba-wrap, .wcard, .study__form, .study__intro, .local__art, .local__text, .contact__card"
+      ".section__head, .card, .ba-wrap, .wcard, .vsec__media, .vsec__text, .study__form, .study__intro, .local__art, .local__text, .contact__card"
     );
     revealEls.forEach((el) => el.classList.add("reveal"));
     if ("IntersectionObserver" in window) {
