@@ -8,7 +8,9 @@ import { Reviews } from "@/components/product/reviews";
 import { SizeGuide } from "@/components/product/size-guide";
 import { ProductBadges } from "@/components/ui/badges";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { getLocale } from "next-intl/server";
 import { products, productBySlug } from "@/data/products";
+import { localizeProduct } from "@/data/product-i18n";
 import { categoryBySlug, ancestorsOf } from "@/data/categories";
 import { ratingFor } from "@/data/reviews";
 import { siteConfig } from "@/config/site";
@@ -25,12 +27,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const product = productBySlug.get(slug);
   if (!product) return { title: "Not found" };
+  const locale = await getLocale();
+  const { name, description } = localizeProduct(product, locale);
   return {
-    title: product.name,
-    description: product.description,
+    title: name,
+    description,
     openGraph: {
-      title: product.name,
-      description: product.description,
+      title: name,
+      description,
       images: product.images.slice(0, 1),
       type: "website",
     },
@@ -42,6 +46,8 @@ export default async function ProductPage({ params }: Params) {
   const product = productBySlug.get(slug);
   if (!product) notFound();
 
+  const locale = await getLocale();
+  const localized = localizeProduct(product, locale);
   const club = categoryBySlug.get(product.categorySlug);
   const rating = ratingFor(slug);
   const price = (product.salePrice ?? product.basePrice) / 100;
@@ -114,7 +120,7 @@ export default async function ProductPage({ params }: Params) {
       {/* Description */}
       <section className="mt-14 max-w-3xl">
         <h2 className="mb-3 font-display text-2xl font-extrabold">Description</h2>
-        <p className="text-navy/70">{product.description}</p>
+        <p className="text-navy/70">{localized.description}</p>
         <ul className="mt-4 grid gap-2 text-sm text-navy/70 sm:grid-cols-2">
           {product.season && <li>📅 Season: {product.season}</li>}
           {product.competition && <li>🏆 Competition: {product.competition}</li>}
