@@ -244,18 +244,17 @@
           </ul>
         </div>
 
-        <!-- Netlify Forms. To deploy elsewhere, see README (Formspree fallback). -->
+        <!-- Formspree (GitHub Pages-friendly). Remplace l'ID dans action="" par
+             le tien (Formspree -> ton formulaire -> endpoint f/XXXXXXXX). -->
         <form
           class="study__form"
           name="free-study"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="#study-success"
+          action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
         >
-          <input type="hidden" name="form-name" value="free-study" />
+          <input type="hidden" name="_subject" value="ISSANwebpower — nouvelle étude gratuite" />
           <p class="hp" aria-hidden="true">
-            <label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            <label>Don’t fill this out: <input name="_gotcha" tabindex="-1" autocomplete="off" /></label>
           </p>
 
           <div class="field">

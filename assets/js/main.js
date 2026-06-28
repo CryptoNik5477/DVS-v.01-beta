@@ -287,11 +287,13 @@
   });
 
   /* ---------------- Form handling ----------------
-     - On Netlify: POSTs to Netlify Forms (AJAX) then shows success.
-     - Anywhere else (local file / non-Netlify host): we can't POST to
-       Netlify, so we still show the success state for UX. To actually
-       receive emails off-Netlify, switch the action to Formspree
-       (see README). Honeypot keeps bots out.
+     POSTs to Formspree (the form's `action`) via AJAX, then shows the
+     success state. Emails are delivered to the address configured on the
+     Formspree form. The honeypot (_gotcha) keeps bots out.
+
+     Before a real Formspree ID is set, the action still contains the
+     placeholder "REPLACE_WITH_FORM_ID": in that case we skip the network
+     call and just show the confirmation, so the site never looks broken.
   ------------------------------------------------- */
   function initStudyForm() {
     const form = document.querySelector(".study__form");
@@ -313,13 +315,18 @@
       const original = btn ? btn.textContent : "";
       if (btn) { btn.disabled = true; btn.textContent = "…"; }
 
-      const data = new FormData(form);
-      const body = new URLSearchParams(data).toString();
+      const endpoint = form.action;
 
-      fetch("/", {
+      // Formspree ID not configured yet → confirm without posting.
+      if (!endpoint || endpoint.indexOf("REPLACE_WITH_FORM_ID") !== -1) {
+        if (btn) { btn.disabled = false; btn.textContent = original; }
+        return showSuccess();
+      }
+
+      fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body
+        headers: { "Accept": "application/json" },
+        body: new FormData(form)
       })
         .then(() => showSuccess())
         .catch(() => showSuccess()) // graceful: still confirm to the user
