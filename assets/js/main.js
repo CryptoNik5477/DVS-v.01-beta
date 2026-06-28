@@ -113,6 +113,7 @@
       "contact.qr": "สแกนเพื่อเพิ่มเพื่อนบน LINE",
       "contact.facebook": "ติดตามบนเฟซบุ๊ก",
       "contact.fbfollow": "ติดตามเราบน Facebook",
+      "contact.fbbtn": "ติดตาม",
 
       "footer.tag": "อีสาน × เว็บ — เชื่อมร้านท้องถิ่นสู่โลกออนไลน์"
     },
@@ -222,6 +223,7 @@
       "contact.qr": "Scan to add me on LINE",
       "contact.facebook": "Follow on Facebook",
       "contact.fbfollow": "Follow us on Facebook",
+      "contact.fbbtn": "Follow",
 
       "footer.tag": "Isan × Web — connecting local shops to the online world"
     }
