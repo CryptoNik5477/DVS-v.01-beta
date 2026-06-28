@@ -11,6 +11,7 @@
     th: {
       "skip": "ข้ามไปยังเนื้อหา",
       "nav.services": "บริการ",
+      "nav.work": "ผลงาน",
       "nav.study": "ศึกษาฟรี",
       "nav.local": "ในพื้นที่",
       "nav.contact": "ติดต่อ",
@@ -44,6 +45,25 @@
       "services.s3.li1": "ระบบจอง & คิว",
       "services.s3.li2": "จัดการสต็อก & ออเดอร์",
       "services.s3.li3": "แดชบอร์ดจัดการร้าน",
+
+      "work.kicker": "ผลงานของเรา",
+      "work.title": "ก่อน & หลัง — ผลลัพธ์จริง",
+      "work.lead": "ตัวอย่างผลงาน: เว็บไซต์ที่ทำใหม่ แอปที่สร้าง อันดับ SEO ที่ดีขึ้น และระบบจัดการภายในร้าน",
+      "work.ba.title": "เว็บไซต์ร้านกาแฟ — ทำใหม่",
+      "work.ba.before": "ก่อน",
+      "work.ba.after": "หลัง",
+      "work.ba.caption": "ลากเพื่อเปรียบเทียบ ก่อน/หลัง",
+      "work.tag.app": "แอป",
+      "work.tag.seo": "SEO",
+      "work.tag.tool": "เครื่องมือ",
+      "work.c1.title": "แอปจองคิว",
+      "work.c1.text": "แอปจองและจัดคิวสำหรับร้าน — ลดคิวหน้าร้านและการรอคอย",
+      "work.c2.title": "อันดับ Google ดีขึ้น",
+      "work.c2.text": "จากอันดับ #38 ขึ้นมาอยู่ TOP 3 ของการค้นหาในพื้นที่",
+      "work.c2.metric": "+180% ผู้เข้าชม",
+      "work.c3.title": "ระบบจัดการพนักงาน",
+      "work.c3.text": "แดชบอร์ดจัดการกะ สต็อก และยอดขาย ในที่เดียว",
+      "work.note": "* ตัวอย่างประกอบเพื่อสาธิต — เปลี่ยนเป็นผลงานจริงของคุณได้",
 
       "study.kicker": "ข้อเสนอพิเศษ",
       "study.title": "รับ “การศึกษาฟรี” สำหรับร้านของคุณ",
@@ -88,6 +108,7 @@
       "contact.title": "ติดต่อผมได้เลย",
       "contact.line": "แชทกับผมบน LINE",
       "contact.phone": "โทร / ข้อความ",
+      "contact.whatsapp": "แชทบน WhatsApp",
       "contact.email": "ส่งอีเมลถึงผม",
 
       "footer.tag": "อีสาน × เว็บ — เชื่อมร้านท้องถิ่นสู่โลกออนไลน์"
@@ -96,6 +117,7 @@
     en: {
       "skip": "Skip to content",
       "nav.services": "Services",
+      "nav.work": "Work",
       "nav.study": "Free study",
       "nav.local": "Local",
       "nav.contact": "Contact",
@@ -129,6 +151,25 @@
       "services.s3.li1": "Booking & queue systems",
       "services.s3.li2": "Stock & order management",
       "services.s3.li3": "Shop management dashboard",
+
+      "work.kicker": "Our work",
+      "work.title": "Before & after — real results",
+      "work.lead": "Examples: websites rebuilt, apps created, SEO rankings improved, and internal management systems.",
+      "work.ba.title": "Café website — rebuilt",
+      "work.ba.before": "Before",
+      "work.ba.after": "After",
+      "work.ba.caption": "Drag to compare before / after",
+      "work.tag.app": "App",
+      "work.tag.seo": "SEO",
+      "work.tag.tool": "Tool",
+      "work.c1.title": "Queue booking app",
+      "work.c1.text": "Booking & queue app for shops — fewer queues and less waiting at the counter.",
+      "work.c2.title": "Higher Google ranking",
+      "work.c2.text": "From position #38 to the local TOP 3 in search results.",
+      "work.c2.metric": "+180% visits",
+      "work.c3.title": "Staff management system",
+      "work.c3.text": "One dashboard for shifts, stock and sales.",
+      "work.note": "* Illustrative samples for demo — replace with your real work.",
 
       "study.kicker": "Special offer",
       "study.title": "Get a free study for your shop",
@@ -173,6 +214,7 @@
       "contact.title": "Get in touch",
       "contact.line": "Chat with me on LINE",
       "contact.phone": "Call / text",
+      "contact.whatsapp": "Chat on WhatsApp",
       "contact.email": "Email me",
 
       "footer.tag": "Isan × Web — connecting local shops to the online world"
@@ -244,7 +286,7 @@
 
     // reveal on scroll
     const revealEls = document.querySelectorAll(
-      ".section__head, .card, .study__form, .study__intro, .local__art, .local__text, .contact__card"
+      ".section__head, .card, .ba-wrap, .wcard, .study__form, .study__intro, .local__art, .local__text, .contact__card"
     );
     revealEls.forEach((el) => el.classList.add("reveal"));
     if ("IntersectionObserver" in window) {
@@ -284,7 +326,26 @@
 
     // ----- Free study form submission -----
     initStudyForm();
+
+    // ----- Before/after comparison slider -----
+    initBeforeAfter();
   });
+
+  function initBeforeAfter() {
+    document.querySelectorAll("[data-ba]").forEach(function (ba) {
+      const before = ba.querySelector("[data-ba-before]");
+      const divider = ba.querySelector("[data-ba-divider]");
+      const range = ba.querySelector("[data-ba-range]");
+      if (!before || !divider || !range) return;
+      const set = (v) => {
+        const p = Math.max(0, Math.min(100, v));
+        before.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
+        divider.style.left = p + "%";
+      };
+      range.addEventListener("input", () => set(parseFloat(range.value)));
+      set(parseFloat(range.value));
+    });
+  }
 
   /* ---------------- Form handling ----------------
      POSTs to Formspree (the form's `action`) via AJAX, then shows the

@@ -1,0 +1,120 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Noto+Sans+Thai:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#444}
+  .asset{position:relative;overflow:hidden;font-family:"Sora","Noto Sans Thai",sans-serif;color:#EAE7FF}
+  .pad{margin:24px}
+  /* shared bg */
+  .bg{position:absolute;inset:0;background:linear-gradient(135deg,#0A0820,#140E37 60%,#0C1330)}
+  .grid{position:absolute;inset:0;opacity:.5;
+    background:linear-gradient(transparent 39px,rgba(155,140,255,.06) 40px),linear-gradient(90deg,transparent 39px,rgba(155,140,255,.06) 40px);
+    background-size:40px 40px;-webkit-mask-image:radial-gradient(circle at 70% 40%,#000,transparent 78%)}
+  .glow1{position:absolute;width:60%;height:140%;left:-15%;top:-20%;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(20,184,166,.45),transparent 60%)}
+  .glow2{position:absolute;width:55%;height:130%;right:-18%;bottom:-30%;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(245,165,36,.4),transparent 60%)}
+  .grad{background:linear-gradient(120deg,#34F5FF,#2DD4BF 40%,#F5A524);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .word b{font-weight:800}
+  .word .l{color:#EAE7FF;opacity:.92}
+  .tag{color:#A7A1D6;font-weight:600}
+  .pill{display:inline-block;border:1px solid rgba(155,140,255,.3);background:rgba(52,245,255,.07);color:#34F5FF;border-radius:99px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+  .cta{display:inline-block;background:linear-gradient(120deg,#34F5FF,#2DD4BF 45%,#F5A524);color:#04141a;font-weight:800;border-radius:99px}
+  svg{display:block;overflow:visible}
+  .dia{fill:none;stroke:url(#g);stroke-width:2;opacity:.5}
+
+  /* sizes */
+  #logo{width:1600px;height:460px;background:transparent}
+  #profile{width:1024px;height:1024px}
+  #cover{width:1640px;height:624px}
+  #post1,#post2{width:1200px;height:630px}
+</style></head>
+<body>
+
+<!-- defs for gradient/naga reused via symbol -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34F5FF"/><stop offset=".45" stop-color="#14B8A6"/><stop offset="1" stop-color="#F5A524"/>
+    </linearGradient>
+    <symbol id="naga" viewBox="0 0 760 760">
+      <g class="scales" stroke="url(#g)" stroke-width="3" fill="none" opacity=".5">
+        <path d="M250 350 l16 16 -16 16 -16 -16 z"/><path d="M470 300 l15 15 -15 15 -15 -15 z"/>
+        <path d="M420 470 l16 16 -16 16 -16 -16 z"/><path d="M180 250 l14 14 -14 14 -14 -14 z"/>
+      </g>
+      <path fill="none" stroke="url(#g)" stroke-width="9" stroke-linecap="round" opacity=".9"
+        d="M70 600 C 170 540 150 410 250 400 C 360 388 360 300 300 250 C 250 208 300 140 390 150 C 500 162 470 270 540 300 C 640 342 700 250 700 180"/>
+      <g fill="#34F5FF">
+        <circle cx="250" cy="400" r="11"/><circle cx="300" cy="250" r="11"/>
+        <circle cx="390" cy="150" r="11" fill="#2DD4BF"/><circle cx="540" cy="300" r="11" fill="#F5A524"/>
+      </g>
+      <g fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M700 180 q34 -8 46 -42 q-30 14 -46 6 q10 -30 -6 -52 q-14 26 -30 26 q-2 -22 -26 -28 q8 22 -4 36"/>
+      </g>
+      <circle cx="708" cy="150" r="7" fill="#F5A524"/>
+    </symbol>
+    <symbol id="markIcon" viewBox="0 0 64 64">
+      <path d="M10 46 C24 46 22 20 32 20 C42 20 40 46 54 46" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="10" cy="46" r="4.5" fill="#34F5FF"/><circle cx="32" cy="20" r="5" fill="#14B8A6"/><circle cx="54" cy="46" r="4.5" fill="#F5A524"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ LOGO (horizontal lockup, transparent) ============ -->
+<div class="pad"><div class="asset" id="logo">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;gap:40px;padding:0 70px">
+    <svg width="300" height="300" style="filter:drop-shadow(0 0 26px rgba(52,245,255,.35))"><use href="#naga" width="300" height="300"/></svg>
+    <div>
+      <div class="word" style="font-size:128px;line-height:1"><span class="l">ISSAN</span><b class="grad">webpower</b></div>
+      <div class="tag" style="font-size:40px;margin-top:14px;letter-spacing:1px">อีสาน × เว็บ — Isan × Web</div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ============ PROFILE (square) ============ -->
+<div class="pad"><div class="asset" id="profile" style="border-radius:64px">
+  <div class="bg"></div><div class="grid"></div><div class="glow1"></div><div class="glow2"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px">
+    <svg width="520" height="520" style="filter:drop-shadow(0 0 40px rgba(52,245,255,.4))"><use href="#naga" width="520" height="520"/></svg>
+    <div class="word" style="font-size:104px;line-height:1"><span class="l">ISSAN</span><b class="grad">web</b></div>
+    <div class="word grad" style="font-size:104px;line-height:1;margin-top:-26px"><b>power</b></div>
+  </div>
+</div></div>
+
+<!-- ============ COVER (Facebook) ============ -->
+<div class="pad"><div class="asset" id="cover">
+  <div class="bg"></div><div class="grid"></div><div class="glow1"></div><div class="glow2"></div>
+  <svg viewBox="0 0 760 760" preserveAspectRatio="xMidYMid meet" style="position:absolute;right:-40px;top:-30px;width:720px;height:720px;opacity:.95;filter:drop-shadow(0 0 30px rgba(52,245,255,.3))"><use href="#naga"/></svg>
+  <div style="position:absolute;left:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;max-width:980px">
+    <span class="pill" style="font-size:22px;padding:10px 22px;margin-bottom:30px">อีสาน × เว็บดีไซน์</span>
+    <div class="word" style="font-size:108px;line-height:1.02"><span class="l">ISSAN</span><b class="grad">webpower</b></div>
+    <div style="font-size:46px;font-weight:700;margin-top:26px;line-height:1.3">เพิ่มการมองเห็นออนไลน์<br><span class="grad">ให้ธุรกิจของคุณ</span></div>
+    <div class="tag" style="font-size:30px;margin-top:26px">เว็บไซต์ · Google · แอป &amp; เครื่องมือ — มุกดาหาร</div>
+  </div>
+</div></div>
+
+<!-- ============ POST 1 (TH, free study) ============ -->
+<div class="pad"><div class="asset" id="post1">
+  <div class="bg"></div><div class="grid"></div><div class="glow1"></div><div class="glow2"></div>
+  <svg viewBox="0 0 760 760" style="position:absolute;right:-120px;bottom:-120px;width:620px;height:620px;opacity:.85"><use href="#naga"/></svg>
+  <div style="position:absolute;left:80px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;max-width:760px">
+    <span class="pill" style="font-size:20px;padding:9px 20px;margin-bottom:26px">ข้อเสนอพิเศษ · ฟรี</span>
+    <div style="font-size:84px;font-weight:800;line-height:1.08">รับ <span class="grad">การศึกษาฟรี</span><br>สำหรับร้านของคุณ</div>
+    <div class="tag" style="font-size:32px;margin-top:24px">วิเคราะห์ Google &amp; โซเชียล + คำแนะนำที่ทำได้จริง</div>
+    <span class="cta" style="font-size:34px;padding:20px 44px;margin-top:40px;align-self:flex-start">รับเลย →</span>
+  </div>
+</div></div>
+
+<!-- ============ POST 2 (EN) ============ -->
+<div class="pad"><div class="asset" id="post2">
+  <div class="bg"></div><div class="grid"></div><div class="glow1"></div><div class="glow2"></div>
+  <svg viewBox="0 0 760 760" style="position:absolute;right:-120px;top:-100px;width:620px;height:620px;opacity:.85"><use href="#naga"/></svg>
+  <div style="position:absolute;left:80px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;max-width:780px">
+    <span class="pill" style="font-size:20px;padding:9px 20px;margin-bottom:26px">Isan × Web</span>
+    <div style="font-size:80px;font-weight:800;line-height:1.06">Boost your business <span class="grad">online</span></div>
+    <div class="tag" style="font-size:32px;margin-top:24px">Websites · Google &amp; Maps · Apps &amp; internal tools</div>
+    <div class="word" style="font-size:46px;margin-top:40px"><span class="l">ISSAN</span><b class="grad">webpower</b></div>
+  </div>
+</div></div>
+
+</body></html>
