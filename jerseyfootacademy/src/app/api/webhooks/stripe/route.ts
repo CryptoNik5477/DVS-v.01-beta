@@ -34,7 +34,7 @@ export async function POST(req: Request) {
       customer_details?: { email?: string };
     };
     try {
-      await prisma.order.update({
+      const order = await prisma.order.update({
         where: { stripeSessionId: session.id },
         data: {
           status: "PAID",
@@ -42,6 +42,13 @@ export async function POST(req: Request) {
           email: session.customer_details?.email ?? undefined,
         },
       });
+      // Count the redemption against the promo code's usage limit.
+      if (order.promoCodeId) {
+        await prisma.promoCode.update({
+          where: { id: order.promoCodeId },
+          data: { usageCount: { increment: 1 } },
+        });
+      }
     } catch {
       // Order row may not exist (DB-less mode) — acknowledge anyway.
     }

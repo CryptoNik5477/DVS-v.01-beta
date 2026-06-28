@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { productBySlug, effectivePrice } from "@/data/products";
 import { customizationSurcharge } from "@/config/customization";
 import { quoteShipping, type ShippingMethodId } from "@/config/shipping";
-import { validatePromo } from "@/config/promos";
+import { validatePromoServer } from "@/lib/promo";
 import { siteConfig } from "@/config/site";
 import { generateOrderNumber } from "@/lib/utils";
 
@@ -81,11 +81,13 @@ export async function POST(req: Request) {
 
   // Discount (optional) → Stripe coupon created on the fly.
   let discountAmount = 0;
+  let promoId: string | undefined;
   const discounts: { coupon: string }[] = [];
   if (promoCode) {
-    const promo = validatePromo(promoCode, subtotal);
+    const promo = await validatePromoServer(promoCode, subtotal);
     if (promo.ok && promo.discount) {
       discountAmount = promo.discount;
+      promoId = promo.promoId; // set only for DB-backed codes
       const coupon = await stripe.coupons.create({
         amount_off: promo.discount,
         currency: "usd",
@@ -137,6 +139,7 @@ export async function POST(req: Request) {
         total: subtotal - discountAmount + shipping.cost,
         shippingZone: shipping.zone,
         shippingMethod: method,
+        promoCodeId: promoId,
         stripeSessionId: session.id,
         items: {
           create: lineItems.map((li) => ({

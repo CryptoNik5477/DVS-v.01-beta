@@ -22,8 +22,9 @@ export default async function AdminPromosPage() {
 
       {!dbAvailable && (
         <p className="mt-4 rounded-lg bg-gold/10 px-3 py-2 text-xs text-navy/70 ring-1 ring-gold/30">
-          ⓘ Database not connected. Connect it to manage live promo codes. The storefront also accepts
-          the offline demo codes in <code>src/config/promos.ts</code>.
+          ⓘ Database not connected. Connect it to manage live promo codes. Checkout validates codes
+          against this table first and falls back to the offline demo codes in{" "}
+          <code>src/config/promos.ts</code>.
         </p>
       )}
 

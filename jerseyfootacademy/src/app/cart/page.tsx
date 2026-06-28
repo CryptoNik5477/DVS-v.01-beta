@@ -9,10 +9,16 @@ import { useCart, lineTotal } from "@/lib/cart-store";
 import { Price } from "@/components/ui/price";
 import { quoteShipping, type ShippingMethodId } from "@/config/shipping";
 import { countryOptions } from "@/config/countries";
-import { validatePromo } from "@/config/promos";
 import { customizationSurcharge } from "@/config/customization";
 
 const TAX_RATE = 0; // configurable; many cross-border B2C orders are tax-exempt at source
+
+interface PromoState {
+  ok: boolean;
+  code?: string;
+  discount?: number;
+  message: string;
+}
 
 export default function CartPage() {
   const t = useTranslations("cart");
@@ -21,7 +27,8 @@ export default function CartPage() {
   const [country, setCountry] = useState("US");
   const [method, setMethod] = useState<ShippingMethodId>("STANDARD");
   const [promoInput, setPromoInput] = useState("");
-  const [promo, setPromo] = useState<ReturnType<typeof validatePromo> | null>(null);
+  const [promo, setPromo] = useState<PromoState | null>(null);
+  const [promoLoading, setPromoLoading] = useState(false);
 
   const subtotal = items.reduce((s, i) => s + lineTotal(i), 0);
   const itemCount = items.reduce((n, i) => n + i.quantity, 0);
@@ -36,8 +43,22 @@ export default function CartPage() {
   const tax = Math.round(taxable * TAX_RATE);
   const total = taxable + shipping.cost + tax;
 
-  function applyPromo() {
-    setPromo(validatePromo(promoInput, subtotal));
+  async function applyPromo() {
+    if (!promoInput.trim()) return;
+    setPromoLoading(true);
+    try {
+      const res = await fetch("/api/promo/validate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: promoInput, subtotal }),
+      });
+      const data = (await res.json()) as PromoState;
+      setPromo(data);
+    } catch {
+      setPromo({ ok: false, message: "Could not validate code. Try again." });
+    } finally {
+      setPromoLoading(false);
+    }
   }
 
   async function checkout() {
@@ -186,8 +207,8 @@ export default function CartPage() {
                 placeholder={t("promoCode")}
                 className="w-full rounded-lg border border-navy/15 px-3 py-2 text-sm uppercase"
               />
-              <button onClick={applyPromo} className="btn-outline px-4 py-2 text-xs">
-                {t("apply")}
+              <button onClick={applyPromo} disabled={promoLoading} className="btn-outline px-4 py-2 text-xs">
+                {promoLoading ? "…" : t("apply")}
               </button>
             </div>
             {promo && (
