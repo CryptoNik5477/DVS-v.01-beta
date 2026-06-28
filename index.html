@@ -43,6 +43,7 @@
 
       <nav class="nav__links" aria-label="Primary">
         <a href="#services" data-i18n="nav.services">บริการ</a>
+        <a href="#work" data-i18n="nav.work">ผลงาน</a>
         <a href="#study" data-i18n="nav.study">ศึกษาฟรี</a>
         <a href="#local" data-i18n="nav.local">ในพื้นที่</a>
         <a href="#contact" data-i18n="nav.contact">ติดต่อ</a>
@@ -230,6 +231,115 @@
       </div>
     </section>
 
+    <div class="ikat-sep" aria-hidden="true"></div>
+
+    <!-- ======================= WORK / RÉALISATIONS (before & after) ======================= -->
+    <section class="section work" id="work">
+      <div class="container">
+        <header class="section__head">
+          <p class="section__kicker" data-i18n="work.kicker">ผลงานของเรา</p>
+          <h2 class="section__title" data-i18n="work.title">ก่อน &amp; หลัง — ผลลัพธ์จริง</h2>
+          <p class="section__lead" data-i18n="work.lead">ตัวอย่างผลงาน: เว็บไซต์ที่ทำใหม่ แอปที่สร้าง อันดับ SEO ที่ดีขึ้น และระบบจัดการภายในร้าน</p>
+        </header>
+
+        <!-- Featured before/after slider: website redesign -->
+        <div class="ba-wrap">
+          <div class="ba" data-ba>
+            <!-- AFTER (base layer): modern site -->
+            <div class="ba__pane ba__after" aria-hidden="true">
+              <div class="mock">
+                <div class="mock__bar"><span></span><span></span><span></span><i>issanwebpower</i></div>
+                <div class="mock__body mock__body--after">
+                  <div class="mb-nav"><b>CAFÉ</b><u></u><u></u><u></u><em>จอง</em></div>
+                  <div class="mb-hero">
+                    <div class="mb-htxt"><h4>กาแฟริมโขง</h4><p></p><p></p><span class="mb-btn">จองโต๊ะ</span></div>
+                    <div class="mb-himg"></div>
+                  </div>
+                  <div class="mb-cards"><div></div><div></div><div></div></div>
+                </div>
+              </div>
+            </div>
+            <!-- BEFORE (clipped overlay): dated site -->
+            <div class="ba__pane ba__before" data-ba-before>
+              <div class="mock">
+                <div class="mock__bar"><span></span><span></span><span></span><i>old-site.geocities</i></div>
+                <div class="mock__body mock__body--before">
+                  <div class="mbo-title">★ ยินดีต้อนรับ ★ WELCOME ★</div>
+                  <div class="mbo-row"><div class="mbo-img"></div><div class="mbo-lines"><i></i><i></i><i></i><i></i><i></i></div></div>
+                  <div class="mbo-blink">!! โปรโมชั่น CLICK HERE !!</div>
+                  <div class="mbo-counter">visitors: 000142</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ba__divider" data-ba-divider><button class="ba__handle" type="button" aria-label="compare"><span>‹›</span></button></div>
+            <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Before / after comparison" data-ba-range />
+            <span class="ba__tag ba__tag--before" data-i18n="work.ba.before">ก่อน</span>
+            <span class="ba__tag ba__tag--after" data-i18n="work.ba.after">หลัง</span>
+          </div>
+          <p class="ba__caption"><strong data-i18n="work.ba.title">เว็บไซต์ร้านกาแฟ — ทำใหม่</strong> · <span data-i18n="work.ba.caption">ลากเพื่อเปรียบเทียบ ก่อน/หลัง</span></p>
+        </div>
+
+        <!-- Result cards -->
+        <div class="work__grid">
+          <!-- App created -->
+          <article class="wcard">
+            <div class="wcard__visual wcard__visual--app" aria-hidden="true">
+              <div class="phone">
+                <div class="phone__notch"></div>
+                <div class="phone__screen">
+                  <span class="ph-h"></span>
+                  <span class="ph-row"><i></i><b>A12</b></span>
+                  <span class="ph-row"><i></i><b>A13</b></span>
+                  <span class="ph-row ph-row--on"><i></i><b>กำลังเรียก</b></span>
+                  <span class="ph-cta">จองคิว</span>
+                </div>
+              </div>
+            </div>
+            <div class="wcard__body">
+              <span class="wcard__tag" data-i18n="work.tag.app">แอป</span>
+              <h3 data-i18n="work.c1.title">แอปจองคิว</h3>
+              <p data-i18n="work.c1.text">แอปจองและจัดคิวสำหรับร้าน — ลดคิวหน้าร้านและการรอคอย</p>
+            </div>
+          </article>
+
+          <!-- SEO increased -->
+          <article class="wcard">
+            <div class="wcard__visual wcard__visual--seo" aria-hidden="true">
+              <div class="chart">
+                <div class="chart__bars"><i style="--h:18%"></i><i style="--h:30%"></i><i style="--h:26%"></i><i style="--h:52%"></i><i style="--h:70%"></i><i style="--h:92%" class="is-peak"></i></div>
+                <div class="chart__jump"><b>#38</b><svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h30m0 0-7-5m7 5-7 5"/></svg><b class="is-up">#2</b></div>
+              </div>
+            </div>
+            <div class="wcard__body">
+              <span class="wcard__tag wcard__tag--accent" data-i18n="work.tag.seo">SEO</span>
+              <h3 data-i18n="work.c2.title">อันดับ Google ดีขึ้น</h3>
+              <p data-i18n="work.c2.text">จากอันดับ #38 ขึ้นมาอยู่ TOP 3 ของการค้นหาในพื้นที่</p>
+              <div class="wcard__metric"><strong data-i18n="work.c2.metric">+180% ผู้เข้าชม</strong></div>
+            </div>
+          </article>
+
+          <!-- Internal management -->
+          <article class="wcard">
+            <div class="wcard__visual wcard__visual--dash" aria-hidden="true">
+              <div class="dash">
+                <div class="dash__top"><span></span><span></span></div>
+                <div class="dash__grid"><i></i><i></i><i></i><i></i></div>
+                <div class="dash__bars"><u style="--h:60%"></u><u style="--h:85%"></u><u style="--h:45%"></u><u style="--h:72%"></u><u style="--h:95%"></u></div>
+              </div>
+            </div>
+            <div class="wcard__body">
+              <span class="wcard__tag" data-i18n="work.tag.tool">เครื่องมือ</span>
+              <h3 data-i18n="work.c3.title">ระบบจัดการพนักงาน</h3>
+              <p data-i18n="work.c3.text">แดชบอร์ดจัดการกะ สต็อก และยอดขาย ในที่เดียว</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="work__note" data-i18n="work.note">* ตัวอย่างประกอบเพื่อสาธิต — เปลี่ยนเป็นผลงานจริงของคุณได้</p>
+      </div>
+    </section>
+
     <!-- ======================= FREE STUDY (most important) ======================= -->
     <section class="section study" id="study">
       <div class="container study__inner">
@@ -352,17 +462,24 @@
           <h2 class="section__title" data-i18n="contact.title">ติดต่อผมได้เลย</h2>
         </header>
         <div class="contact__grid">
-          <a class="contact__card" href="https://line.me/R/ti/p/@albeny254" target="_blank" rel="noopener">
+          <a class="contact__card" href="https://line.me/ti/p/~issanwebpower" target="_blank" rel="noopener">
             <span class="contact__ic">LINE</span>
-            <strong>@albeny254</strong>
+            <strong>issanwebpower</strong>
             <small data-i18n="contact.line">แชทกับผมบน LINE</small>
           </a>
-          <a class="contact__card" href="tel:+66839192903">
+          <a class="contact__card" href="tel:+66835288315">
             <span class="contact__ic" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
             </span>
-            <strong>+66 83 919 2903</strong>
+            <strong>+66 83 528 8315</strong>
             <small data-i18n="contact.phone">โทร / ข้อความ</small>
+          </a>
+          <a class="contact__card" href="https://wa.me/66835288315" target="_blank" rel="noopener">
+            <span class="contact__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23 0 4.54-3.69 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            </span>
+            <strong>WhatsApp</strong>
+            <small data-i18n="contact.whatsapp">แชทบน WhatsApp</small>
           </a>
           <a class="contact__card" href="mailto:alibazarland@gmail.com">
             <span class="contact__ic" aria-hidden="true">
@@ -385,6 +502,7 @@
       </div>
       <div class="footer__links">
         <a href="#services" data-i18n="nav.services">บริการ</a>
+        <a href="#work" data-i18n="nav.work">ผลงาน</a>
         <a href="#study" data-i18n="nav.study">ศึกษาฟรี</a>
         <a href="#local" data-i18n="nav.local">ในพื้นที่</a>
         <a href="#contact" data-i18n="nav.contact">ติดต่อ</a>
