@@ -1,18 +1,15 @@
 import type { ProductSeed } from "./types";
 
-// A small pool of football/apparel photos reused across products as a gallery.
-const JERSEY_IMAGES = [
-  "photo-1577212017184-80cc0da11082", // jersey on hanger
-  "photo-1521412644187-c49fa049e84d", // stadium
-  "photo-1574629810360-7efbbe195018", // football
-  "photo-1551958219-acbc608c6377", // crowd
-  "photo-1518605738261-9f3b3a3a3a3a",
-];
-
-const gallery = (a: number, b: number) =>
-  [JERSEY_IMAGES[a], JERSEY_IMAGES[b]].map(
-    (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=75`,
-  );
+// Local SVG placeholder jerseys (self-contained, no external network needed).
+// Replace these with real product photography before launch.
+const P = "/placeholders";
+const gallery = (a: number, b: number) => {
+  // Kept for signature compatibility; actual images are assigned by colorway
+  // in `assignPlaceholderImages()` below based on each team.
+  void a;
+  void b;
+  return [`${P}/jersey-navy.svg`, `${P}/jersey-red.svg`];
+};
 
 const fullStock = { XS: 12, S: 25, M: 40, L: 35, XL: 20, XXL: 10 };
 
@@ -468,6 +465,32 @@ export const products: ProductSeed[] = [
     stock: fullStock,
   },
 ];
+
+/**
+ * Assign a team-appropriate placeholder colorway to each product based on its
+ * slug/name, so the demo catalog looks varied and on-brand without external
+ * images. Each product gets [team colorway, navy alt] as its two gallery shots.
+ */
+function assignPlaceholderImages() {
+  const rules: [RegExp, string][] = [
+    [/man-utd|liverpool|arsenal|atletico|bayern|roma|morocco|spain/, "red"],
+    [/man-city|napoli/, "sky"],
+    [/real-madrid|tottenham|england|germany/, "white"],
+    [/barcelona/, "blaugrana"],
+    [/dortmund|brazil/, "yellow"],
+    [/ajax|chelsea|france|italy|usa|argentina|japan|psg|inter/, "navy"],
+    [/marseille/, "sky"],
+    [/netherlands/, "orange"],
+    [/atalanta|sassuolo|nigeria|mexico/, "green"],
+  ];
+  for (const p of products) {
+    const key = `${p.slug} ${p.name}`.toLowerCase();
+    const color = rules.find(([re]) => re.test(key))?.[1] ?? "navy";
+    const alt = color === "navy" ? "red" : "navy";
+    p.images = [`${P}/jersey-${color}.svg`, `${P}/jersey-${alt}.svg`];
+  }
+}
+assignPlaceholderImages();
 
 export const productBySlug = new Map(products.map((p) => [p.slug, p]));
 

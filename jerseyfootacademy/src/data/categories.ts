@@ -9,17 +9,17 @@ import type { CategoryNode } from "./types";
  * read from this single source of truth.
  */
 
-const img = (q: string) =>
-  `https://images.unsplash.com/${q}?auto=format&fit=crop&w=800&q=70`;
+// Local SVG tiles (self-contained). Replace with photography before launch.
+const img = (slug: string) => `/placeholders/tile-${slug}.svg`;
 
 export const categories: CategoryNode[] = [
   // ── Continents ─────────────────────────────────────────────────────────────
-  { type: "CONTINENT", name: "Europe", slug: "europe", image: img("photo-1431576901776-e539bd916ba2") },
-  { type: "CONTINENT", name: "South America", slug: "south-america", image: img("photo-1483729558449-99ef09a8c325") },
-  { type: "CONTINENT", name: "North America", slug: "north-america", image: img("photo-1485871981521-5b1fd3805eee") },
-  { type: "CONTINENT", name: "Asia", slug: "asia", image: img("photo-1542051841857-5f90071e7989") },
-  { type: "CONTINENT", name: "Africa", slug: "africa", image: img("photo-1516026672322-bc52d61a55d5") },
-  { type: "CONTINENT", name: "Oceania", slug: "oceania", image: img("photo-1506905925346-21bda4d32df4") },
+  { type: "CONTINENT", name: "Europe", slug: "europe", image: img("europe") },
+  { type: "CONTINENT", name: "South America", slug: "south-america", image: img("south-america") },
+  { type: "CONTINENT", name: "North America", slug: "north-america", image: img("north-america") },
+  { type: "CONTINENT", name: "Asia", slug: "asia", image: img("asia") },
+  { type: "CONTINENT", name: "Africa", slug: "africa", image: img("africa") },
+  { type: "CONTINENT", name: "Oceania", slug: "oceania", image: img("oceania") },
 
   // ── Europe › Countries ───────────────────────────────────────────────────
   { type: "COUNTRY", name: "England", slug: "england", countryCode: "GB", parentSlug: "europe" },
@@ -72,7 +72,7 @@ export const categories: CategoryNode[] = [
   { type: "CLUB", name: "AFC Ajax", slug: "ajax", countryCode: "NL", parentSlug: "amsterdam" },
 
   // ── National Teams branch ──────────────────────────────────────────────────
-  { type: "NATIONAL", name: "National Teams", slug: "national-teams", image: img("photo-1551958219-acbc608c6377") },
+  { type: "NATIONAL", name: "National Teams", slug: "national-teams", image: img("national-teams") },
   { type: "NATIONAL", name: "Brazil", slug: "brazil", countryCode: "BR", parentSlug: "national-teams" },
   { type: "NATIONAL", name: "Argentina", slug: "argentina", countryCode: "AR", parentSlug: "national-teams" },
   { type: "NATIONAL", name: "France", slug: "france-nt", countryCode: "FR", parentSlug: "national-teams" },
