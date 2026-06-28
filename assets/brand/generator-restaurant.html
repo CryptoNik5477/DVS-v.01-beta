@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=Noto+Serif+Thai:wght@400;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&family=Noto+Serif+Thai:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:#777}
@@ -11,36 +11,35 @@
   .bar span{width:11px;height:11px;border-radius:50%}
   .bar .u{margin-left:14px;flex:1;font-size:14px;border-radius:20px;padding:6px 16px}
 
-  /* ===================== AFTER (modern) ===================== */
-  #after .bar{background:#22202e}
+  /* ===================== AFTER (modern · sunset theme) ===================== */
+  #after .bar{background:#2a1c12}
   #after .bar span:nth-child(1){background:#ff5f57}#after .bar span:nth-child(2){background:#febc2e}#after .bar span:nth-child(3){background:#28c840}
-  #after .bar .u{background:#100f18;color:#9a95c0;font-family:Prompt}
-  .site-a{height:706px;background:#fffdf9;font-family:"Prompt",sans-serif;color:#211a17;display:flex;flex-direction:column}
-  .nav-a{display:flex;align-items:center;gap:18px;padding:16px 34px;border-bottom:1px solid #eee5d8}
+  #after .bar .u{background:#1a0f08;color:#d8a86f;font-family:Prompt}
+  .site-a{height:706px;background:#fff8f0;font-family:"Prompt",sans-serif;color:#2a1c12;display:flex;flex-direction:column}
+  .nav-a{display:flex;align-items:center;gap:18px;padding:16px 34px;border-bottom:1px solid #f0e2d2;background:#fffaf4}
   .logo-a{font-weight:800;font-size:26px;display:flex;align-items:center;gap:8px}
-  .logo-a b{color:#1f8a4c}
-  .nav-a .lk{margin-left:24px;display:flex;gap:26px;font-size:16px;color:#5a5048;font-weight:500}
-  .nav-a .book{margin-left:auto;background:#1f8a4c;color:#fff;font-weight:700;padding:11px 24px;border-radius:30px;font-size:16px}
+  .logo-a b{color:#e07b1a}
+  .nav-a .lk{margin-left:24px;display:flex;gap:26px;font-size:16px;color:#6b5a4a;font-weight:500}
+  .nav-a .book{margin-left:auto;background:linear-gradient(120deg,#f5a524,#e0701a);color:#fff;font-weight:700;padding:11px 24px;border-radius:30px;font-size:16px;box-shadow:0 8px 18px -8px rgba(224,112,26,.6)}
   .hero-a{height:392px;position:relative;overflow:hidden;display:flex;align-items:center}
-  .hero-a .bgimg{position:absolute;inset:0;background:radial-gradient(circle at 75% 40%,#7a3b12,#2a1408 70%)}
-  .hero-a .food{position:absolute;font-size:150px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
-  .hero-a .f1{right:60px;top:40px}.hero-a .f2{right:230px;top:150px;font-size:120px}.hero-a .f3{right:90px;bottom:30px;font-size:110px}
-  .hero-a .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,6,2,.92) 30%,rgba(10,6,2,.2))}
-  .hero-a .htxt{position:relative;padding:0 60px;color:#fff;max-width:680px}
-  .hero-a .kick{color:#ffcf6b;font-weight:600;font-size:20px;letter-spacing:.5px}
-  .hero-a h1{font-size:60px;font-weight:800;line-height:1.1;margin:12px 0 14px}
-  .hero-a h1 em{color:#ffcf6b;font-style:normal}
+  .hero-a img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-a .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,14,2,.92) 22%,rgba(60,24,4,.45) 62%,rgba(255,150,40,.08))}
+  .hero-a .htxt{position:relative;padding:0 60px;color:#fff;max-width:700px}
+  .hero-a .kick{color:#ffc56b;font-weight:600;font-size:20px;letter-spacing:.3px}
+  .hero-a h1{font-size:62px;font-weight:800;line-height:1.08;margin:12px 0 14px;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+  .hero-a h1 em{color:#ffc56b;font-style:normal}
   .hero-a .stars{font-size:22px;color:#fff;margin-bottom:22px}
-  .hero-a .stars b{color:#ffcf6b}
-  .hero-a .cta{display:inline-block;background:#1f8a4c;color:#fff;font-weight:700;font-size:20px;padding:15px 34px;border-radius:30px}
-  .hero-a .cta2{display:inline-block;margin-left:12px;border:2px solid rgba(255,255,255,.6);color:#fff;font-weight:600;font-size:20px;padding:13px 28px;border-radius:30px}
+  .hero-a .stars b{color:#ffc56b}
+  .hero-a .cta{display:inline-block;background:linear-gradient(120deg,#f5a524,#e0701a);color:#fff;font-weight:700;font-size:20px;padding:15px 34px;border-radius:30px;box-shadow:0 10px 24px -10px rgba(224,112,26,.7)}
+  .hero-a .cta2{display:inline-block;margin-left:12px;border:2px solid rgba(255,255,255,.65);color:#fff;font-weight:600;font-size:20px;padding:13px 28px;border-radius:30px}
   .menu-a{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;padding:24px 34px}
-  .mcard{border:1px solid #eee5d8;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px -16px rgba(0,0,0,.3);display:flex;flex-direction:column}
-  .mcard .pic{height:120px;display:flex;align-items:center;justify-content:center;font-size:70px}
+  .mcard{border:1px solid #f0e2d2;border-radius:16px;overflow:hidden;box-shadow:0 12px 26px -16px rgba(80,40,0,.4);display:flex;flex-direction:column;background:#fff}
+  .mcard .pic{height:122px;overflow:hidden}
+  .mcard .pic img{width:100%;height:100%;object-fit:cover;display:block}
   .mcard .b{padding:12px 16px}
   .mcard .b h4{font-size:20px;font-weight:700}
-  .mcard .b p{font-size:14px;color:#857a70;margin:3px 0 8px}
-  .mcard .b .pr{font-weight:800;color:#1f8a4c;font-size:22px}
+  .mcard .b p{font-size:14px;color:#8a7460;margin:3px 0 8px}
+  .mcard .b .pr{font-weight:800;color:#e0701a;font-size:22px}
 
   /* ===================== BEFORE (old 2005) ===================== */
   #before .bar{background:#c8c8c8}
@@ -53,7 +52,7 @@
   .site-b .marq{text-align:center;color:#008000;font-size:18px;margin-bottom:10px}
   .row-b{display:flex;gap:18px;margin-top:6px}
   .photo-b{border:4px ridge #999;background:#cde;padding:6px;width:230px;text-align:center}
-  .photo-b .px{font-size:90px;image-rendering:pixelated;filter:contrast(1.2) saturate(1.3)}
+  .photo-b .px{font-size:90px}
   .photo-b .cap{font-size:14px;color:#333;margin-top:4px}
   table.menu-b{border-collapse:collapse;font-size:18px;flex:1}
   table.menu-b td{border:1px solid #999;padding:5px 12px}
@@ -77,20 +76,19 @@
       <div class="book">📅 จองโต๊ะ</div>
     </div>
     <div class="hero-a">
-      <div class="bgimg"></div>
-      <div class="food f1">🦐</div><div class="food f2">🍢</div><div class="food f3">🍲</div>
+      <img class="bg" src="photo-sunset.jpg" alt="Mekong sunset">
       <div class="ov"></div>
       <div class="htxt">
         <div class="kick">บุฟเฟต์ปิ้งย่าง &amp; ซีฟู้ด ริมโขง · มุกดาหาร</div>
-        <h1>อิ่มไม่อั้น<br>เริ่มต้น <em>299.-</em></h1>
+        <h1>อิ่มไม่อั้น ริมโขง<br>เริ่มต้น <em>299.-</em></h1>
         <div class="stars"><b>★★★★★</b> 4.9 · 320 รีวิว</div>
         <a class="cta">📅 จองโต๊ะออนไลน์</a><a class="cta2">ดูเมนู</a>
       </div>
     </div>
     <div class="menu-a">
-      <div class="mcard"><div class="pic" style="background:linear-gradient(135deg,#ffe0a3,#ff9b54)">🍖</div><div class="b"><h4>หมูกระทะ</h4><p>ปิ้งย่างไม่อั้น + น้ำจิ้มแซ่บ</p><div class="pr">299.-</div></div></div>
-      <div class="mcard"><div class="pic" style="background:linear-gradient(135deg,#ffd0d0,#ff6b6b)">🦐</div><div class="b"><h4>ซีฟู้ดรวม</h4><p>กุ้ง หอย ปู ปลาหมึก สดทุกวัน</p><div class="pr">399.-</div></div></div>
-      <div class="mcard"><div class="pic" style="background:linear-gradient(135deg,#c8f0c0,#5fbf6b)">🥗</div><div class="b"><h4>บุฟเฟต์ผัก</h4><p>ผักสดออร์แกนิก + สลัดบาร์</p><div class="pr">199.-</div></div></div>
+      <div class="mcard"><div class="pic"><img src="photo-steak.jpg" alt="steak"></div><div class="b"><h4>สเต๊กเนื้อย่าง</h4><p>เนื้อนุ่มย่างถ่าน เสิร์ฟร้อน ๆ</p><div class="pr">349.-</div></div></div>
+      <div class="mcard"><div class="pic"><img src="photo-lobster.jpg" alt="lobster"></div><div class="b"><h4>ล็อบสเตอร์ย่างเนย</h4><p>ซีฟู้ดพรีเมียม สดทุกวัน</p><div class="pr">599.-</div></div></div>
+      <div class="mcard"><div class="pic"><img src="photo-salad.jpg" alt="salad"></div><div class="b"><h4>สลัด &amp; ผักสด</h4><p>ผักออร์แกนิก + สลัดบาร์</p><div class="pr">199.-</div></div></div>
     </div>
   </div>
 </div></div>
