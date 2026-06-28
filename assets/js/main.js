@@ -110,6 +110,7 @@
       "contact.phone": "โทร / ข้อความ",
       "contact.whatsapp": "แชทบน WhatsApp",
       "contact.email": "ส่งอีเมลถึงผม",
+      "contact.qr": "สแกนเพื่อเพิ่มเพื่อนบน LINE",
 
       "footer.tag": "อีสาน × เว็บ — เชื่อมร้านท้องถิ่นสู่โลกออนไลน์"
     },
@@ -216,6 +217,7 @@
       "contact.phone": "Call / text",
       "contact.whatsapp": "Chat on WhatsApp",
       "contact.email": "Email me",
+      "contact.qr": "Scan to add me on LINE",
 
       "footer.tag": "Isan × Web — connecting local shops to the online world"
     }
