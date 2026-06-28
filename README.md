@@ -89,6 +89,21 @@ Netlify Forms ne fonctionne pas. Bascule alors sur **Formspree** :
 3. Deploy. Chaque `git push` redéploiera le site.
 4. (Optionnel) **Domain settings** pour un nom de domaine perso.
 
+### Option A bis — Netlify via GitHub Actions (token en secret, jamais en clair)
+
+Un workflow est fourni : `.github/workflows/deploy-netlify.yml`. Il déploie en
+production à chaque push sur `main` (et au déclenchement manuel).
+
+1. Crée un site Netlify une première fois (drag&drop ou import) pour obtenir son
+   **Site ID** (*Site settings → General → Site ID*).
+2. Dépôt GitHub → **Settings → Secrets and variables → Actions** → ajoute :
+   - `NETLIFY_AUTH_TOKEN` = un Personal Access Token Netlify
+   - `NETLIFY_SITE_ID` = l'ID du site
+3. Push sur `main` → le site se déploie automatiquement.
+
+> N'utilise **qu'une seule** méthode (UI connect *ou* ce workflow) pour éviter
+> les déploiements en double.
+
 ### Option B — Cloudflare Pages
 
 1. Cloudflare → **Workers & Pages → Create → Pages → Connect to Git**.
