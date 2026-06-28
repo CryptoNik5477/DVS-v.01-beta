@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalogus",
+    "clubs": "Clubs",
+    "nationalTeams": "Nationale teams",
+    "worldCup": "WK 2026",
+    "sale": "Sale",
+    "search": "Zoeken",
+    "account": "Account",
+    "cart": "Winkelwagen"
+  },
+  "common": {
+    "addToCart": "Toevoegen aan winkelwagen",
+    "viewAll": "Bekijk alles",
+    "shopNow": "Shop nu",
+    "from": "vanaf",
+    "free": "Gratis",
+    "new": "Nieuw",
+    "sale": "Sale",
+    "bestSeller": "Bestseller",
+    "worldCup": "WK",
+    "outOfStock": "Uitverkocht",
+    "loading": "Laden…"
+  },
+  "home": {
+    "heroTitle": "Steun je team. Draag de passie.",
+    "heroSubtitle": "Premium voetbalshirts van de grootste clubs en nationale teams. Eigen bedrukking, wereldwijde verzending.",
+    "shopWorldCup": "Shop WK 2026",
+    "bestSellers": "Bestsellers",
+    "newArrivals": "Nieuw binnen",
+    "worldCupPromo": "WK 2026 Collectie",
+    "popularCategories": "Populaire categorieën",
+    "newsletterTitle": "Word lid van de Academy",
+    "newsletterText": "Krijg als eerste toegang tot nieuwe shirts en exclusieve WK-drops.",
+    "newsletterCta": "Aanmelden",
+    "faq": "Veelgestelde vragen",
+    "partners": "Vertrouwd door fans wereldwijd"
+  },
+  "features": {
+    "shipping": "Internationale verzending",
+    "shippingText": "Snelle, traceerbare levering wereldwijd vanuit Thailand.",
+    "secure": "Veilig betalen",
+    "secureText": "Visa, Mastercard, Apple Pay en Google Pay via Stripe.",
+    "custom": "Eigen bedrukking",
+    "customText": "Voeg naam en nummer toe met directe voorvertoning.",
+    "quality": "Premium kwaliteit",
+    "qualityText": "Stadionwaardige stoffen en authentieke details."
+  },
+  "product": {
+    "selectSize": "Kies maat",
+    "sizeGuide": "Maattabel",
+    "customize": "Personaliseer je shirt",
+    "addName": "Naam",
+    "addNumber": "Nummer",
+    "font": "Lettertype",
+    "color": "Kleur",
+    "preview": "Voorvertoning",
+    "reviews": "Beoordelingen",
+    "description": "Beschrijving",
+    "inStock": "Op voorraad",
+    "demoReviewsNotice": "De getoonde beoordelingen zijn demogegevens."
+  },
+  "cart": {
+    "title": "Je winkelwagen",
+    "empty": "Je winkelwagen is leeg.",
+    "subtotal": "Subtotaal",
+    "shipping": "Verzending",
+    "tax": "Btw",
+    "total": "Totaal",
+    "promoCode": "Kortingscode",
+    "apply": "Toepassen",
+    "checkout": "Afrekenen",
+    "continue": "Verder winkelen",
+    "remove": "Verwijderen"
+  },
+  "footer": {
+    "shop": "Shop",
+    "help": "Hulp",
+    "company": "Bedrijf",
+    "rights": "Alle rechten voorbehouden.",
+    "shipsFrom": "Verzonden vanuit Thailand"
+  }
+}

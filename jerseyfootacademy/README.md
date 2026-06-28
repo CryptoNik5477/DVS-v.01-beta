@@ -38,8 +38,8 @@ Prisma · PostgreSQL · Stripe · NextAuth · next-intl**.
 - **Accounts**: register, login, forgot-password, order history (NextAuth).
 - **Admin dashboard**: KPIs, orders, products table, CSV export, scaffolded
   customers/promos/stats/settings.
-- **i18n**: English, French, Thai, Spanish, German. **6 currencies**: USD, EUR,
-  THB, GBP, AUD, CAD.
+- **i18n**: French, English, Italian, German, Spanish, Dutch. **6 currencies**:
+  USD, EUR, THB, GBP, AUD, CAD.
 - **SEO**: per-page metadata, Open Graph (auto-generated image), Twitter cards,
   `sitemap.xml`, `robots.txt`, JSON-LD, web manifest.
 - **Security**: security headers, rate limiting on auth/checkout, admin route
@@ -90,7 +90,7 @@ jerseyfootacademy/
 ├─ prisma/
 │  ├─ schema.prisma        # data model (catalog, orders, users, promos…)
 │  └─ seed.ts              # seeds DB from src/data/*
-├─ messages/               # i18n catalogs (en, fr, th, es, de)
+├─ messages/               # i18n catalogs (fr, en, it, de, es, nl)
 ├─ src/
 │  ├─ app/                 # routes (storefront, cart, checkout, account, admin, api)
 │  ├─ components/          # UI, layout, product, home, admin
