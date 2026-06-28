@@ -13,9 +13,9 @@ name: Deploy to Netlify
 # continu intégré), tu n'as PAS besoin de ce workflow — n'utilise qu'UNE seule
 # méthode pour éviter les déploiements en double.
 
+# Déclenchement manuel uniquement (active le bloc `push` quand les secrets
+# NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID sont configurés).
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
