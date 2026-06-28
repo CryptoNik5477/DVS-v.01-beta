@@ -29,7 +29,13 @@ export async function middleware(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
 
   // 1. Rate limit sensitive POST endpoints.
-  const rateLimitedPaths = ["/api/auth/callback/credentials", "/api/register", "/api/checkout"];
+  const rateLimitedPaths = [
+    "/api/auth/callback/credentials",
+    "/api/register",
+    "/api/checkout",
+    "/api/reviews",
+    "/api/account/forgot",
+  ];
   if (req.method === "POST" && rateLimitedPaths.some((p) => pathname.startsWith(p))) {
     if (rateLimited(`${ip}:${pathname}`)) {
       return NextResponse.json({ error: "Too many requests. Please slow down." }, { status: 429 });

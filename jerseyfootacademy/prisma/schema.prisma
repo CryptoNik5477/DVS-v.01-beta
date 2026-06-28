@@ -207,19 +207,25 @@ model ProductVariant {
 // ─────────────────────────────────────────────────────────────────────────────
 
 model Review {
-  id        String  @id @default(cuid())
-  productId String
-  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  id        String   @id @default(cuid())
+  // Denormalised slug so reviews work with the static catalog even before the
+  // Product table is seeded. productId is linked when the product row exists.
+  productSlug String
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
   userId    String?
-  user      User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
   authorName String
   country    String // ISO code or display name
   rating    Int // 1..5
-  comment   String  @db.Text
-  isDemo    Boolean @default(false) // TRUE = demo/seed data, remove before production
+  comment   String   @db.Text
+  isDemo    Boolean  @default(false) // TRUE = demo/seed data, remove before production
+  approved  Boolean  @default(false) // moderation flag; only approved reviews show on storefront
   createdAt DateTime @default(now())
 
+  @@index([productSlug])
   @@index([productId])
+  @@index([approved])
 }
 
 model Favorite {

@@ -17,9 +17,14 @@ export default function ForgotPasswordPage() {
           </p>
         ) : (
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              // TODO: wire to a transactional email provider + token in DB.
+              // Always shows success (no account enumeration); email sent if the account exists.
+              await fetch("/api/account/forgot", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
+              }).catch(() => {});
               setSent(true);
             }}
             className="mt-6 space-y-4"

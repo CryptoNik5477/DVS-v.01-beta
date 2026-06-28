@@ -5,6 +5,7 @@ import {
   LayoutDashboard,
   Settings,
   ShoppingCart,
+  Star,
   Tag,
   Users,
 } from "lucide-react";
@@ -14,6 +15,7 @@ const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/products", label: "Products", icon: Box },
   { href: "/admin/orders", label: "Orders", icon: ShoppingCart },
+  { href: "/admin/reviews", label: "Reviews", icon: Star },
   { href: "/admin/customers", label: "Customers", icon: Users },
   { href: "/admin/promos", label: "Promo Codes", icon: Tag },
   { href: "/admin/stats", label: "Statistics", icon: BarChart3 },

@@ -94,12 +94,14 @@ async function main() {
     if (!productId) continue;
     await prisma.review.create({
       data: {
+        productSlug: r.productSlug,
         productId,
         authorName: r.authorName,
         country: r.country,
         rating: r.rating,
         comment: r.comment,
         isDemo: true,
+        approved: true,
         createdAt: new Date(Date.now() - r.daysAgo * 86400000),
       },
     });
