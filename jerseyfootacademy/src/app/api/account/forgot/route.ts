@@ -27,6 +27,7 @@ export async function POST(req: Request) {
       const url = `${siteConfig.url}/account/reset?token=${token}&email=${encodeURIComponent(email)}`;
       await sendEmail({
         to: email,
+        replyTo: siteConfig.contact.email,
         subject: `Reset your ${siteConfig.name} password`,
         html: emailLayout(
           "Reset your password",

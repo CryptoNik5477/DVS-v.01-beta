@@ -14,7 +14,7 @@ export const siteConfig = {
   baseCurrency: "USD" as const,
   twitter: "@jerseyfootacad",
   contact: {
-    email: "hello@jerseyfootacademy.com",
+    email: "jerseyfootacademy@yahoo.com",
     phone: "+66 83 919 2903",
     address: "Mukdahan, Thailand",
   },

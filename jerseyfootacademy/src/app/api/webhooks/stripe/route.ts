@@ -56,6 +56,7 @@ export async function POST(req: Request) {
       if (order.email && order.email.includes("@")) {
         await sendEmail({
           to: order.email,
+          replyTo: siteConfig.contact.email,
           subject: `Order ${order.number} confirmed — ${siteConfig.name}`,
           html: emailLayout(
             "Thank you for your order! 🎉",

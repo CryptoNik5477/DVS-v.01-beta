@@ -31,6 +31,7 @@ export async function POST(req: Request) {
     // Best-effort: no-ops if RESEND_API_KEY is not configured.
     await sendEmail({
       to: email,
+      replyTo: siteConfig.contact.email,
       subject: `Welcome to the ${siteConfig.name} Academy ⚽`,
       html: emailLayout(
         "You're in! 🎉",
