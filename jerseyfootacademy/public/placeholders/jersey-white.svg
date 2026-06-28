@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f3ee"/><stop offset="1" stop-color="#e7e5db"/>
+    </linearGradient>
+    <linearGradient id="bd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3f4f6"/><stop offset="1" stop-color="#bebec0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <!-- jersey body -->
+  <path d="M250 230 L330 180 Q400 235 470 180 L550 230 L660 320 L590 420 L560 380 V820 Q400 860 240 820 V380 L210 420 L140 320 Z"
+        fill="url(#bd)" stroke="#bebec0" stroke-width="4"/>
+  
+  <!-- collar -->
+  <path d="M330 180 Q400 250 470 180" fill="none" stroke="#0B132B" stroke-width="14"/>
+  <!-- sleeve trim -->
+  <path d="M140 320 L210 420" stroke="#0B132B" stroke-width="10" fill="none"/>
+  <path d="M660 320 L590 420" stroke="#0B132B" stroke-width="10" fill="none"/>
+  <!-- crest -->
+  <g transform="translate(400,470)">
+    <path d="M0 -70 L62 -45 V20 C62 70 35 96 0 112 C-35 96 -62 70 -62 20 V-45 Z" fill="#0B132B" stroke="#C8102E" stroke-width="4"/>
+    <circle cx="0" cy="10" r="26" fill="#fff"/>
+    <path d="M0 -8 l13 9.5 -5 15.5 h-16 l-5 -15.5 Z" fill="#0B132B"/>
+  </g>
+  <!-- number -->
+  <text x="400" y="730" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="180" font-weight="900" fill="#0B132B" opacity="0.92">10</text>
+  <text x="400" y="935" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" letter-spacing="6" fill="#0B132B" opacity="0.55">JERSEYFOOTACADEMY</text>
+</svg>

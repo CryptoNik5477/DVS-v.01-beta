@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JerseyFootAcademy">
+  <defs>
+    <linearGradient id="crest" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13204A"/>
+      <stop offset="1" stop-color="#0B132B"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield -->
+  <path d="M32 3 L57 11 V31 C57 47 46 56 32 61 C18 56 7 47 7 31 V11 Z" fill="url(#crest)" stroke="#D4AF37" stroke-width="2"/>
+  <!-- Red chevron -->
+  <path d="M32 16 L46 22 V31 C46 40 40 46 32 50 C24 46 18 40 18 31 V22 Z" fill="#C8102E" opacity="0.9"/>
+  <!-- Football pentagon hint -->
+  <circle cx="32" cy="31" r="10" fill="#FFFFFF"/>
+  <path d="M32 24 l5 3.6 -2 6 h-6 l-2 -6 Z" fill="#0B132B"/>
+  <!-- Monogram star -->
+  <path d="M32 6 l1.4 3 3.3.4 -2.4 2.3.6 3.3 -2.9 -1.6 -2.9 1.6.6 -3.3 -2.4 -2.3 3.3 -.4 Z" fill="#D4AF37"/>
+</svg>

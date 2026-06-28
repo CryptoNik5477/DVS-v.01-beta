@@ -1,0 +1,351 @@
+// JerseyFootAcademy — Prisma schema
+// PostgreSQL. Designed to be extensible: the category tree is self-referential
+// (Continent → Country → City → Club) plus a flat "National Teams" branch.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Auth (NextAuth Prisma adapter compatible)
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  // Hashed with bcrypt. Null for OAuth-only accounts.
+  passwordHash  String?
+  role          Role      @default(CUSTOMER)
+
+  accounts  Account[]
+  sessions  Session[]
+  addresses Address[]
+  orders    Order[]
+  reviews   Review[]
+  favorites Favorite[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Address {
+  id         String  @id @default(cuid())
+  userId     String
+  user       User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName   String
+  line1      String
+  line2      String?
+  city       String
+  state      String?
+  postalCode String
+  country    String // ISO 3166-1 alpha-2
+  phone      String?
+  isDefault  Boolean @default(false)
+
+  orders Order[]
+
+  createdAt DateTime @default(now())
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Catalog
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum CategoryType {
+  CONTINENT
+  COUNTRY
+  CITY
+  CLUB
+  NATIONAL // national selections branch
+}
+
+model Category {
+  id       String       @id @default(cuid())
+  type     CategoryType
+  name     String
+  slug     String       @unique
+  // Optional ISO country code, useful for flags / shipping / filtering.
+  countryCode String?
+  image    String?
+  crest    String? // club/national crest image
+  parentId String?
+  parent   Category?    @relation("CategoryTree", fields: [parentId], references: [id])
+  children Category[]   @relation("CategoryTree")
+  products Product[]
+
+  createdAt DateTime @default(now())
+
+  @@index([type])
+  @@index([parentId])
+}
+
+model Product {
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  description String  @db.Text
+  // Prices stored in minor units (cents) of the store base currency (USD).
+  basePrice   Int
+  salePrice   Int?
+  // Category is normally a CLUB or NATIONAL node.
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+
+  // Searchable / filterable metadata
+  competition String? // e.g. "Champions League", "World Cup 2026"
+  season      String? // e.g. "2025/26"
+  year        Int? // e.g. 2026
+  player      String? // optional featured player name
+
+  // Badges / merchandising flags
+  isNew         Boolean @default(false)
+  isOnSale      Boolean @default(false)
+  isWorldCup    Boolean @default(false)
+  isBestSeller  Boolean @default(false)
+  isFeatured    Boolean @default(false)
+  customizable  Boolean @default(true)
+
+  images   ProductImage[]
+  variants ProductVariant[]
+  reviews  Review[]
+  favorites Favorite[]
+  orderItems OrderItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([categoryId])
+  @@index([year])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  position  Int     @default(0)
+
+  @@index([productId])
+}
+
+enum Size {
+  XS
+  S
+  M
+  L
+  XL
+  XXL
+}
+
+model ProductVariant {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  size      Size
+  color     String  @default("Home")
+  sku       String  @unique
+  stock     Int     @default(0)
+
+  orderItems OrderItem[]
+
+  @@unique([productId, size, color])
+  @@index([productId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Reviews — seed data is flagged isDemo=true so it can be purged pre-launch.
+// ─────────────────────────────────────────────────────────────────────────────
+
+model Review {
+  id        String   @id @default(cuid())
+  // Denormalised slug so reviews work with the static catalog even before the
+  // Product table is seeded. productId is linked when the product row exists.
+  productSlug String
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  authorName String
+  country    String // ISO code or display name
+  rating    Int // 1..5
+  comment   String   @db.Text
+  isDemo    Boolean  @default(false) // TRUE = demo/seed data, remove before production
+  approved  Boolean  @default(false) // moderation flag; only approved reviews show on storefront
+  createdAt DateTime @default(now())
+
+  @@index([productSlug])
+  @@index([productId])
+  @@index([approved])
+}
+
+model Favorite {
+  userId    String
+  productId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([userId, productId])
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Commerce
+// ─────────────────────────────────────────────────────────────────────────────
+
+enum DiscountType {
+  PERCENT
+  FIXED
+}
+
+model PromoCode {
+  id         String       @id @default(cuid())
+  code       String       @unique
+  type       DiscountType
+  value      Int // percent (0-100) or minor-unit amount depending on type
+  minOrder   Int? // minimum order subtotal in cents
+  usageLimit Int? // null = unlimited
+  usageCount Int          @default(0)
+  active     Boolean      @default(true)
+  expiresAt  DateTime?
+
+  orders Order[]
+
+  createdAt DateTime @default(now())
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+  REFUNDED
+}
+
+model Order {
+  id     String      @id @default(cuid())
+  number String      @unique // human-friendly order number
+  userId String?
+  user   User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  status OrderStatus @default(PENDING)
+
+  email     String
+  addressId String?
+  address   Address? @relation(fields: [addressId], references: [id])
+  // Snapshot of shipping address (kept even if address is later deleted)
+  shipName    String?
+  shipLine1   String?
+  shipLine2   String?
+  shipCity    String?
+  shipState   String?
+  shipPostal  String?
+  shipCountry String?
+
+  // Money — all in minor units of `currency`.
+  currency      String @default("USD")
+  subtotal      Int
+  shippingCost  Int    @default(0)
+  taxAmount     Int    @default(0)
+  discountAmount Int   @default(0)
+  total         Int
+
+  shippingZone   String? // ASIA / EUROPE / ...
+  shippingMethod String? // STANDARD / EXPRESS
+  trackingNumber String?
+
+  promoCodeId String?
+  promoCode   PromoCode? @relation(fields: [promoCodeId], references: [id])
+
+  stripeSessionId       String? @unique
+  stripePaymentIntentId String?
+
+  items OrderItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  variantId String?
+  variant   ProductVariant? @relation(fields: [variantId], references: [id], onDelete: SetNull)
+
+  // Snapshot fields (preserved if product is later edited/removed)
+  name      String
+  size      String
+  color     String
+  unitPrice Int
+  quantity  Int
+
+  // Customization (flocking). Null when not personalised.
+  customName   String?
+  customNumber String?
+  customFont   String?
+  customColor  String?
+  customSurcharge Int  @default(0)
+
+  @@index([orderId])
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
