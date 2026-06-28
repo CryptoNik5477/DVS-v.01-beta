@@ -1,0 +1,18 @@
+<svg width="280" height="56" viewBox="0 0 280 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JerseyFootAcademy">
+  <defs>
+    <linearGradient id="lcrest" x1="0" y1="0" x2="0" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#13204A"/>
+      <stop offset="1" stop-color="#0B132B"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(4,2)">
+    <path d="M26 2 L48 9 V27 C48 41 38 49 26 53 C14 49 4 41 4 27 V9 Z" fill="url(#lcrest)" stroke="#D4AF37" stroke-width="2"/>
+    <path d="M26 14 L38 19 V27 C38 35 33 40 26 43 C19 40 14 35 14 27 V19 Z" fill="#C8102E" opacity="0.9"/>
+    <circle cx="26" cy="27" r="8.5" fill="#FFFFFF"/>
+    <path d="M26 21 l4.3 3.1 -1.7 5.1 h-5.2 l-1.7 -5.1 Z" fill="#0B132B"/>
+  </g>
+  <g transform="translate(64,0)" font-family="'Poppins','Segoe UI',sans-serif">
+    <text x="0" y="26" font-size="22" font-weight="800" fill="#0B132B">Jersey<tspan fill="#C8102E">Foot</tspan></text>
+    <text x="0" y="46" font-size="13" font-weight="600" letter-spacing="4" fill="#D4AF37">ACADEMY</text>
+  </g>
+</svg>

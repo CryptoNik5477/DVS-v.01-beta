@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "clubs": "Clubs",
+    "nationalTeams": "National Teams",
+    "worldCup": "World Cup 2026",
+    "sale": "Sale",
+    "search": "Search",
+    "account": "Account",
+    "cart": "Cart"
+  },
+  "common": {
+    "addToCart": "Add to cart",
+    "viewAll": "View all",
+    "shopNow": "Shop now",
+    "from": "from",
+    "free": "Free",
+    "new": "New",
+    "sale": "Sale",
+    "bestSeller": "Best Seller",
+    "worldCup": "World Cup",
+    "outOfStock": "Out of stock",
+    "loading": "Loading…"
+  },
+  "home": {
+    "heroTitle": "Support Your Team. Wear The Passion.",
+    "heroSubtitle": "Premium authentic football jerseys from the greatest clubs and national teams. Custom flocking, worldwide shipping.",
+    "shopWorldCup": "Shop World Cup 2026",
+    "bestSellers": "Best Sellers",
+    "newArrivals": "New Arrivals",
+    "worldCupPromo": "World Cup 2026 Collection",
+    "popularCategories": "Popular Categories",
+    "newsletterTitle": "Join the Academy",
+    "newsletterText": "Get early access to new kits and exclusive World Cup drops.",
+    "newsletterCta": "Subscribe",
+    "faq": "Frequently Asked Questions",
+    "partners": "Trusted by fans worldwide"
+  },
+  "features": {
+    "shipping": "International Shipping",
+    "shippingText": "Fast, tracked delivery worldwide from Thailand.",
+    "secure": "Secure Payment",
+    "secureText": "Visa, Mastercard, Apple Pay & Google Pay via Stripe.",
+    "custom": "Custom Flocking",
+    "customText": "Add any name & number with an instant preview.",
+    "quality": "Premium Quality",
+    "qualityText": "Stadium-grade fabrics and authentic detailing."
+  },
+  "product": {
+    "selectSize": "Select size",
+    "sizeGuide": "Size guide",
+    "customize": "Personalise your jersey",
+    "addName": "Name",
+    "addNumber": "Number",
+    "font": "Font",
+    "color": "Color",
+    "preview": "Preview",
+    "reviews": "Reviews",
+    "description": "Description",
+    "inStock": "In stock",
+    "demoReviewsNotice": "Reviews shown are demo data for testing."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "Tax",
+    "total": "Total",
+    "promoCode": "Promo code",
+    "apply": "Apply",
+    "checkout": "Proceed to checkout",
+    "continue": "Continue shopping",
+    "remove": "Remove"
+  },
+  "footer": {
+    "shop": "Shop",
+    "help": "Help",
+    "company": "Company",
+    "rights": "All rights reserved.",
+    "shipsFrom": "Ships from Thailand"
+  }
+}

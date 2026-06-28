@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "catalog": "Catalogue",
+    "clubs": "Clubs",
+    "nationalTeams": "Équipes nationales",
+    "worldCup": "Coupe du Monde 2026",
+    "sale": "Promotions",
+    "search": "Rechercher",
+    "account": "Compte",
+    "cart": "Panier"
+  },
+  "common": {
+    "addToCart": "Ajouter au panier",
+    "viewAll": "Voir tout",
+    "shopNow": "Acheter",
+    "from": "à partir de",
+    "free": "Gratuit",
+    "new": "Nouveau",
+    "sale": "Promo",
+    "bestSeller": "Meilleure vente",
+    "worldCup": "Coupe du Monde",
+    "outOfStock": "Rupture de stock",
+    "loading": "Chargement…"
+  },
+  "home": {
+    "heroTitle": "Soutenez votre équipe. Portez la passion.",
+    "heroSubtitle": "Maillots de football premium des plus grands clubs et sélections. Flocage personnalisé, livraison internationale.",
+    "shopWorldCup": "Boutique Coupe du Monde 2026",
+    "bestSellers": "Meilleures ventes",
+    "newArrivals": "Nouveautés",
+    "worldCupPromo": "Collection Coupe du Monde 2026",
+    "popularCategories": "Catégories populaires",
+    "newsletterTitle": "Rejoignez l'Academy",
+    "newsletterText": "Accédez en avant-première aux nouveaux maillots et aux exclusivités Coupe du Monde.",
+    "newsletterCta": "S'abonner",
+    "faq": "Questions fréquentes",
+    "partners": "La confiance des fans du monde entier"
+  },
+  "features": {
+    "shipping": "Livraison internationale",
+    "shippingText": "Livraison rapide et suivie dans le monde entier depuis la Thaïlande.",
+    "secure": "Paiement sécurisé",
+    "secureText": "Visa, Mastercard, Apple Pay et Google Pay via Stripe.",
+    "custom": "Flocage personnalisé",
+    "customText": "Ajoutez nom et numéro avec aperçu instantané.",
+    "quality": "Qualité premium",
+    "qualityText": "Tissus de qualité stade et finitions authentiques."
+  },
+  "product": {
+    "selectSize": "Choisir la taille",
+    "sizeGuide": "Guide des tailles",
+    "customize": "Personnalisez votre maillot",
+    "addName": "Nom",
+    "addNumber": "Numéro",
+    "font": "Police",
+    "color": "Couleur",
+    "preview": "Aperçu",
+    "reviews": "Avis",
+    "description": "Description",
+    "inStock": "En stock",
+    "demoReviewsNotice": "Les avis affichés sont des données de démonstration."
+  },
+  "cart": {
+    "title": "Votre panier",
+    "empty": "Votre panier est vide.",
+    "subtotal": "Sous-total",
+    "shipping": "Livraison",
+    "tax": "Taxes",
+    "total": "Total",
+    "promoCode": "Code promo",
+    "apply": "Appliquer",
+    "checkout": "Passer au paiement",
+    "continue": "Continuer mes achats",
+    "remove": "Retirer"
+  },
+  "footer": {
+    "shop": "Boutique",
+    "help": "Aide",
+    "company": "Société",
+    "rights": "Tous droits réservés.",
+    "shipsFrom": "Expédié depuis la Thaïlande"
+  }
+}

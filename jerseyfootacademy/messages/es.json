@@ -1,0 +1,84 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "catalog": "Catálogo",
+    "clubs": "Clubes",
+    "nationalTeams": "Selecciones",
+    "worldCup": "Mundial 2026",
+    "sale": "Ofertas",
+    "search": "Buscar",
+    "account": "Cuenta",
+    "cart": "Carrito"
+  },
+  "common": {
+    "addToCart": "Añadir al carrito",
+    "viewAll": "Ver todo",
+    "shopNow": "Comprar",
+    "from": "desde",
+    "free": "Gratis",
+    "new": "Nuevo",
+    "sale": "Oferta",
+    "bestSeller": "Más vendido",
+    "worldCup": "Mundial",
+    "outOfStock": "Agotado",
+    "loading": "Cargando…"
+  },
+  "home": {
+    "heroTitle": "Apoya a tu equipo. Viste la pasión.",
+    "heroSubtitle": "Camisetas de fútbol premium de los mejores clubes y selecciones. Estampado personalizado, envío mundial.",
+    "shopWorldCup": "Tienda Mundial 2026",
+    "bestSellers": "Más vendidos",
+    "newArrivals": "Novedades",
+    "worldCupPromo": "Colección Mundial 2026",
+    "popularCategories": "Categorías populares",
+    "newsletterTitle": "Únete a la Academy",
+    "newsletterText": "Accede primero a las nuevas equipaciones y exclusivas del Mundial.",
+    "newsletterCta": "Suscribirse",
+    "faq": "Preguntas frecuentes",
+    "partners": "La confianza de los aficionados de todo el mundo"
+  },
+  "features": {
+    "shipping": "Envío internacional",
+    "shippingText": "Entrega rápida y con seguimiento desde Tailandia.",
+    "secure": "Pago seguro",
+    "secureText": "Visa, Mastercard, Apple Pay y Google Pay con Stripe.",
+    "custom": "Estampado personalizado",
+    "customText": "Añade nombre y número con vista previa instantánea.",
+    "quality": "Calidad premium",
+    "qualityText": "Tejidos de calidad de estadio y detalles auténticos."
+  },
+  "product": {
+    "selectSize": "Selecciona la talla",
+    "sizeGuide": "Guía de tallas",
+    "customize": "Personaliza tu camiseta",
+    "addName": "Nombre",
+    "addNumber": "Número",
+    "font": "Tipografía",
+    "color": "Color",
+    "preview": "Vista previa",
+    "reviews": "Reseñas",
+    "description": "Descripción",
+    "inStock": "En stock",
+    "demoReviewsNotice": "Las reseñas mostradas son datos de demostración."
+  },
+  "cart": {
+    "title": "Tu carrito",
+    "empty": "Tu carrito está vacío.",
+    "subtotal": "Subtotal",
+    "shipping": "Envío",
+    "tax": "Impuestos",
+    "total": "Total",
+    "promoCode": "Código promocional",
+    "apply": "Aplicar",
+    "checkout": "Finalizar compra",
+    "continue": "Seguir comprando",
+    "remove": "Eliminar"
+  },
+  "footer": {
+    "shop": "Tienda",
+    "help": "Ayuda",
+    "company": "Empresa",
+    "rights": "Todos los derechos reservados.",
+    "shipsFrom": "Envío desde Tailandia"
+  }
+}
