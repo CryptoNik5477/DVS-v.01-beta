@@ -49,7 +49,14 @@ export function Header() {
               {open ? <X /> : <Menu />}
             </button>
             <Link href="/" className="flex items-center">
-              <Image src="/logo.svg" alt="JerseyFootAcademy" width={200} height={40} priority />
+              <Image
+                src="/logo.png"
+                alt="JerseyFootAcademy"
+                width={300}
+                height={260}
+                priority
+                className="h-14 w-auto"
+              />
             </Link>
           </div>
 
