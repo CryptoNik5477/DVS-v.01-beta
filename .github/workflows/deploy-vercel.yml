@@ -1,0 +1,49 @@
+name: Deploy JerseyFootAcademy to Vercel
+
+# Deploys the Next.js app to Vercel from GitHub's runners using a token.
+# Vercel is the native host for Next.js (SSR, API routes, middleware all work).
+#
+# Required repository secret (Settings → Secrets and variables → Actions):
+#   VERCEL_TOKEN  = a Vercel access token (https://vercel.com/account/tokens)
+#
+# On the first run the Vercel CLI auto-creates/links a project named
+# "jerseyfootacademy" under the token's account. Runtime env vars (DATABASE_URL,
+# Stripe, NextAuth, …) must be set in the Vercel project for DB-backed features.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "jerseyfootacademy/**"
+      - ".github/workflows/deploy-vercel.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: vercel-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: jerseyfootacademy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Deploy to Vercel (production)
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          set -e
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN secret is not set. Add it under Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
