@@ -1,0 +1,12 @@
+# Netlify build config for the JerseyFootAcademy Next.js app.
+# In the Netlify UI, set the site's "Base directory" to `jerseyfootacademy`
+# so this file is picked up. The Next.js runtime is added automatically.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
