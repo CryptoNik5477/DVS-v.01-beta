@@ -86,6 +86,8 @@ export const categories: CategoryNode[] = [
   { type: "NATIONAL", name: "Netherlands", slug: "netherlands-nt", countryCode: "NL", parentSlug: "national-teams" },
   { type: "NATIONAL", name: "Italy", slug: "italy-nt", countryCode: "IT", parentSlug: "national-teams" },
   { type: "NATIONAL", name: "Morocco", slug: "morocco", countryCode: "MA", parentSlug: "national-teams" },
+  { type: "NATIONAL", name: "Norway", slug: "norway", countryCode: "NO", parentSlug: "national-teams" },
+  { type: "NATIONAL", name: "Sweden", slug: "sweden", countryCode: "SE", parentSlug: "national-teams" },
 ];
 
 export const categoryBySlug = new Map(categories.map((c) => [c.slug, c]));

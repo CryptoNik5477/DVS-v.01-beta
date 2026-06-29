@@ -464,6 +464,34 @@ export const products: ProductSeed[] = [
     images: gallery(0, 2),
     stock: fullStock,
   },
+  {
+    name: "Norway National Team Home 2026",
+    slug: "norway-home-2026",
+    description: "For Norge i alt. The bold red home kit of Norway with its blue-and-white centre stripe.",
+    basePrice: 9500,
+    categorySlug: "norway",
+    competition: "World Cup 2026",
+    season: "2026",
+    year: 2026,
+    isWorldCup: true,
+    isNew: true,
+    images: gallery(0, 1),
+    stock: fullStock,
+  },
+  {
+    name: "Sweden National Team Home 2026",
+    slug: "sweden-home-2026",
+    description: "Blågult. The bright yellow and blue home kit of the Swedish national team.",
+    basePrice: 9500,
+    categorySlug: "sweden",
+    competition: "World Cup 2026",
+    season: "2026",
+    year: 2026,
+    isWorldCup: true,
+    isNew: true,
+    images: gallery(1, 0),
+    stock: fullStock,
+  },
 ];
 
 /**
@@ -474,6 +502,13 @@ export const products: ProductSeed[] = [
 // Real product photography (overrides the placeholder for these slugs).
 const REAL_IMAGES: Record<string, string[]> = {
   "psg-home-2526": ["/products/psg-home-2526-front.jpg", "/products/psg-home-2526-back.jpg"],
+  "norway-home-2026": ["/products/norway-home-2026-front.jpg", "/products/norway-home-2026-back.jpg"],
+  "sweden-home-2026": ["/products/sweden-home-2026-front.jpg", "/products/sweden-home-2026-back.jpg"],
+  "italy-home-2026": ["/products/italy-home-2026-front.jpg", "/products/italy-home-2026-back.jpg"],
+  "portugal-home-2026": ["/products/portugal-home-2026-front.jpg", "/products/portugal-home-2026-back.jpg"],
+  "argentina-home-2026": ["/products/argentina-home-2026-front.jpg", "/products/argentina-home-2026-back.jpg"],
+  "germany-home-2026": ["/products/germany-home-2026-front.jpg", "/products/germany-home-2026-back.jpg"],
+  "brazil-home-2026": ["/products/brazil-home-2026-front.jpg", "/products/brazil-home-2026-back.jpg"],
 };
 
 function assignPlaceholderImages() {
