@@ -1,0 +1,42 @@
+name: Deploy JerseyFootAcademy to Netlify
+
+# Builds the Next.js app on GitHub's runners and deploys it to Netlify using a
+# token — no GitHub↔Netlify OAuth connection required. Runs on pushes that touch
+# the app, and can be triggered manually from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "jerseyfootacademy/**"
+      - ".github/workflows/deploy-jerseyfootacademy.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: jerseyfootacademy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: jerseyfootacademy/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Build & deploy to Netlify
+        run: npx --yes netlify-cli@17 deploy --build --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NEXT_TELEMETRY_DISABLED: "1"
