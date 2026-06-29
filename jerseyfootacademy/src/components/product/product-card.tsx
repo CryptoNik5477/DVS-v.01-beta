@@ -17,14 +17,16 @@ export function ProductCard({ product }: { product: ProductSeed }) {
       href={`/product/${product.slug}`}
       className="group flex flex-col overflow-hidden rounded-xl bg-white shadow-soft ring-1 ring-navy/5 transition hover:-translate-y-1 hover:shadow-lg"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-cream">
-        <Image
-          src={product.images[0]}
-          alt={product.name}
-          fill
-          sizes="(max-width:768px) 50vw, 25vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
-        />
+      <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
+        <div className="absolute inset-3">
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            sizes="(max-width:768px) 50vw, 25vw"
+            className="object-contain transition duration-500 group-hover:scale-105"
+          />
+        </div>
         <ProductBadges product={product} className="absolute left-3 top-3" />
         <FavoriteButton slug={product.slug} className="absolute right-3 top-3" />
       </div>

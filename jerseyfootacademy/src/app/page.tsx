@@ -43,14 +43,14 @@ export default async function HomePage() {
               <Link
                 key={p.slug}
                 href={`/product/${p.slug}`}
-                className="group relative aspect-[3/4] overflow-hidden rounded-lg ring-1 ring-white/10"
+                className="group relative aspect-[3/4] overflow-hidden rounded-lg bg-neutral-100 ring-1 ring-white/10"
               >
                 <Image
                   src={p.images[0]}
                   alt={p.name}
                   fill
                   sizes="120px"
-                  className="object-cover transition group-hover:scale-105"
+                  className="object-contain p-1 transition group-hover:scale-105"
                 />
               </Link>
             ))}
