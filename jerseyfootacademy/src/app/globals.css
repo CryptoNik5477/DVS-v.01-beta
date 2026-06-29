@@ -1,108 +1,56 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   JerseyFootAcademy — Design tokens (World Cup 2026 inspired)
-   Palette: Midnight Blue · White · Red · Gold
+   JerseyFootAcademy — "Vif & sportif" (White · Electric Red · Royal Blue · Gold)
    ───────────────────────────────────────────────────────────────────────── */
 @theme {
-  --color-navy: #0b132b;
-  --color-navy-800: #0f1937;
-  --color-navy-700: #13204a;
-  --color-navy-600: #1c2d63;
-  --color-gold: #d4af37;
-  --color-gold-light: #e8c766;
-  --color-red: #c8102e;
-  --color-red-light: #ff4d6d;
-  --color-cream: #f8f7f3;
+  --color-navy: #0a1b6b;
+  --color-navy-800: #081556;
+  --color-navy-700: #1235a8;
+  --color-navy-600: #1f4ddb;
+  --color-gold: #ffd23f;
+  --color-gold-light: #ffe27a;
+  --color-red: #ff2e4d;
+  --color-red-light: #ff5a72;
+  --color-cream: #ffffff;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-poppins), var(--font-inter), sans-serif;
+  --font-display: var(--font-anton), var(--font-poppins), sans-serif;
 
   --radius-xl: 1rem;
-  --shadow-soft: 0 10px 40px -12px rgb(11 19 43 / 0.25);
+  --shadow-soft: 0 12px 40px -12px rgb(10 27 107 / 0.28);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-fade-up: fadeUp 0.6s ease both;
   --animate-shine: shine 3s linear infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes shine {
-  to { background-position: 200% center; }
-}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shine { to{background-position:200% center} }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    @apply bg-cream text-navy antialiased;
-    font-family: var(--font-sans);
-  }
-  h1, h2, h3, h4, .font-display {
-    font-family: var(--font-display);
-  }
-  ::selection {
-    background: var(--color-gold);
-    color: var(--color-navy);
-  }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-cream text-navy antialiased; font-family: var(--font-sans); }
+  h1,h2,h3,h4,.font-display { font-family: var(--font-display); letter-spacing: 0.01em; }
+  ::selection { background: var(--color-red); color: #fff; }
 }
 
 @layer components {
-  .container-page {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-red px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-red-light hover:shadow-lg active:scale-[0.98];
-  }
-  .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:bg-gold-light active:scale-[0.98];
-  }
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy/15 bg-white px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy/40;
-  }
-  .badge {
-    @apply inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide;
-  }
-  .gold-text {
-    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold));
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: var(--animate-shine);
-  }
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-red px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-red-light hover:shadow-lg active:scale-[0.98]; }
+  .btn-gold { @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:bg-gold-light active:scale-[0.98]; }
+  .btn-outline { @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy/15 bg-white px-6 py-3 text-sm font-semibold text-navy transition hover:border-red hover:text-red; }
+  .badge { @apply inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide; }
+  .gold-text { background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light), var(--color-gold)); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: var(--animate-shine); }
 }
 
-/* Print: hide site chrome and show only the invoice */
 @media print {
-  header,
-  footer,
-  .no-print {
-    display: none !important;
-  }
-  body {
-    background: #fff;
-  }
-  .print-card {
-    box-shadow: none !important;
-    border: 1px solid #e5e5e5 !important;
-  }
+  header, footer, .no-print { display: none !important; }
+  body { background: #fff; }
+  .print-card { box-shadow: none !important; border: 1px solid #e5e5e5 !important; }
 }
 
-/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }

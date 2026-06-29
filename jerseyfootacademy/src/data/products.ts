@@ -471,6 +471,11 @@ export const products: ProductSeed[] = [
  * slug/name, so the demo catalog looks varied and on-brand without external
  * images. Each product gets [team colorway, navy alt] as its two gallery shots.
  */
+// Real product photography (overrides the placeholder for these slugs).
+const REAL_IMAGES: Record<string, string[]> = {
+  "psg-home-2526": ["/products/psg-home-2526-front.jpg", "/products/psg-home-2526-back.jpg"],
+};
+
 function assignPlaceholderImages() {
   const rules: [RegExp, string][] = [
     [/man-utd|liverpool|arsenal|atletico|bayern|roma|morocco|spain/, "red"],
@@ -484,6 +489,10 @@ function assignPlaceholderImages() {
     [/atalanta|sassuolo|nigeria|mexico/, "green"],
   ];
   for (const p of products) {
+    if (REAL_IMAGES[p.slug]) {
+      p.images = REAL_IMAGES[p.slug];
+      continue;
+    }
     const key = `${p.slug} ${p.name}`.toLowerCase();
     const color = rules.find(([re]) => re.test(key))?.[1] ?? "navy";
     const alt = color === "navy" ? "red" : "navy";
