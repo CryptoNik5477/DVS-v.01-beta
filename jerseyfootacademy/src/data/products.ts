@@ -510,6 +510,7 @@ const REAL_IMAGES: Record<string, string[]> = {
   "germany-home-2026": ["/products/germany-home-2026-front.jpg", "/products/germany-home-2026-back.jpg"],
   "brazil-home-2026": ["/products/brazil-home-2026-front.jpg", "/products/brazil-home-2026-back.jpg"],
   "spain-home-2026": ["/products/spain-home-2026-front.jpg", "/products/spain-home-2026-back.jpg"],
+  "france-home-2026": ["/products/france-home-2026-front.jpg", "/products/france-home-2026-back.jpg"],
 };
 
 function assignPlaceholderImages() {
