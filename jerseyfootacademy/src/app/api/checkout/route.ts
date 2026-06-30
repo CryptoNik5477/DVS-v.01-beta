@@ -60,6 +60,12 @@ export async function POST(req: Request) {
     const custom = item.customization?.name || item.customization?.number
       ? ` (${item.customization?.name ?? ""} ${item.customization?.number ?? ""})`.trimEnd()
       : "";
+    // Stripe requires fully-qualified, publicly reachable image URLs (no
+    // relative paths, no SVG). Absolutize raster images; skip otherwise.
+    const productImages = product.images
+      .filter((s) => /\.(png|jpe?g|webp)$/i.test(s))
+      .slice(0, 1)
+      .map((src) => (src.startsWith("http") ? src : `${siteConfig.url}${src.startsWith("/") ? "" : "/"}${src}`));
     return {
       product,
       quantity: item.quantity,
@@ -71,7 +77,7 @@ export async function POST(req: Request) {
           unit_amount: unitAmount,
           product_data: {
             name: `${product.name} — ${item.size}${custom}`,
-            images: product.images.slice(0, 1),
+            ...(productImages.length ? { images: productImages } : {}),
           },
         },
       },
