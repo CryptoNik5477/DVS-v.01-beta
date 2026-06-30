@@ -1,0 +1,14 @@
+JerseyFoot Display
+==================
+
+This font is a modified/renamed derivative of "Bebas Neue" by Dharma Type
+(Ryoichi Tsunekawa), licensed under the SIL Open Font License, Version 1.1.
+
+The SIL OFL permits modification and redistribution of the font, including
+for commercial use, provided the derivative is not sold by itself and is
+distributed under the same OFL license with a different name (done here:
+"JerseyFoot Display"). The full OFL 1.1 text is available at:
+https://openfontlicense.org
+
+Original work: Copyright Dharma Type — https://dharmatype.com
+Derivative ("JerseyFoot Display"): released under SIL OFL 1.1.

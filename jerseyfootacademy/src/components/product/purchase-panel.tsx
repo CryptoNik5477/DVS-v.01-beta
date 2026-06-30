@@ -24,7 +24,7 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
 
   const [size, setSize] = useState<Size | null>(null);
   const [personalise, setPersonalise] = useState(false);
-  const [custom, setCustom] = useState<Customization>({ font: "official", color: "white" });
+  const [custom, setCustom] = useState<Customization>({ font: "house", color: "white" });
   const [added, setAdded] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

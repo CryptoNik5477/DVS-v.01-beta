@@ -6,6 +6,7 @@
 export const CUSTOMIZATION_SURCHARGE = 1200; // $12.00 flat fee when name/number added
 
 export const flockingFonts = [
+  { id: "house", label: "JerseyFoot (maison)", css: "'JerseyFoot Display', sans-serif" },
   { id: "official", label: "Official League", css: "var(--font-display)" },
   { id: "classic", label: "Classic Block", css: "Arial, sans-serif" },
   { id: "modern", label: "Modern Condensed", css: "'Arial Narrow', sans-serif" },

@@ -2,6 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Teko:wght@600;700&family=Saira+Condensed:wght@700;800&family=Rajdhani:wght@600;700&family=Archivo+Black&family=Bebas+Neue&family=Russo+One&family=Saira+Stencil+One&display=swap");
 @import "tailwindcss";
 
+/* House flocking font (derived from Bebas Neue, SIL OFL — see /fonts/…-LICENSE.txt). */
+@font-face {
+  font-family: "JerseyFoot Display";
+  src: url("/fonts/JerseyFootDisplay.woff2") format("woff2"),
+       url("/fonts/JerseyFootDisplay.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────
    JerseyFootAcademy — "Vif & sportif" (White · Electric Red · Royal Blue · Gold)
    ───────────────────────────────────────────────────────────────────────── */
