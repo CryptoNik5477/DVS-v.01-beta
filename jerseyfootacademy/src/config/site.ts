@@ -7,7 +7,7 @@ export const siteConfig = {
   tagline: "Support Your Team. Wear The Passion.",
   description:
     "Premium authentic & replica football jerseys from the world's greatest clubs and national teams. Official-quality kits, custom flocking, worldwide shipping from Thailand.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://jerseyfootacademy.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://jerseyfootacademy.vercel.app",
   ogImage: "/og-image.png",
   locale: "en",
   // Store base currency — all stored prices are in minor units of this currency.
