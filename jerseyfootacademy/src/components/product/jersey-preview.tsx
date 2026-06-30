@@ -24,6 +24,16 @@ export function JerseyPreview({
 
   const isPhoto = !!backImage && /\.(jpe?g|png|webp)$/i.test(backImage);
 
+  // Brand logo sits inside the bottom of the number, in the colour that
+  // contrasts with the flocking (white number → black mark, dark → white mark).
+  const hex = color.replace("#", "");
+  const exp = hex.length === 3 ? hex.replace(/(.)/g, "$1$1") : hex;
+  const r = parseInt(exp.slice(0, 2) || "ff", 16);
+  const g = parseInt(exp.slice(2, 4) || "ff", 16);
+  const b = parseInt(exp.slice(4, 6) || "ff", 16);
+  const lightFlock = 0.299 * r + 0.587 * g + 0.114 * b > 140;
+  const markSrc = lightFlock ? "/logo-mark-black.png" : "/logo-mark-white.png";
+
   // Overlay on the real jersey-back photo.
   if (isPhoto) {
     return (
@@ -66,6 +76,8 @@ export function JerseyPreview({
           >
             {number}
           </text>
+          {/* Brand logo embedded at the bottom of the number */}
+          <image href={markSrc} x="43.5" y="74.5" width="13" height="13" opacity="0.92" />
         </svg>
       </div>
     );
