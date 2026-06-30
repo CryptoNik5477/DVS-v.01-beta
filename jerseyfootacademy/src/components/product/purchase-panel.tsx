@@ -12,6 +12,7 @@ import {
   flockingFonts,
   type Customization,
 } from "@/config/customization";
+import { teamFontCss, teamFontLabel } from "@/config/team-fonts";
 import type { ProductSeed, Size } from "@/data/types";
 
 const ALL_SIZES: Size[] = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -30,6 +31,14 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
   const price = product.salePrice ?? product.basePrice;
   const hasCustomContent = Boolean(custom.name?.trim()) || Boolean(custom.number?.trim());
   const surcharge = personalise && hasCustomContent ? CUSTOMIZATION_SURCHARGE : 0;
+
+  // The team's official-style flocking font (used for the "Official" option).
+  const officialFont = teamFontCss(product.categorySlug);
+  const officialLabel = teamFontLabel(product.categorySlug);
+  const previewFont =
+    custom.font === "official" && officialFont
+      ? officialFont
+      : flockingFonts.find((f) => f.id === custom.font)?.css;
 
   function add() {
     if (!size) {
@@ -141,7 +150,9 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
                   >
                     {flockingFonts.map((f) => (
                       <option key={f.id} value={f.id}>
-                        {f.label}
+                        {f.id === "official" && officialLabel
+                          ? `Officiel · ${officialLabel}`
+                          : f.label}
                       </option>
                     ))}
                   </select>
@@ -169,7 +180,11 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
                   {t("preview")}
                 </span>
                 <div className="w-full max-w-[200px]">
-                  <JerseyPreview customization={custom} backImage={product.images[1] ?? product.images[0]} />
+                  <JerseyPreview
+                    customization={custom}
+                    backImage={product.images[1] ?? product.images[0]}
+                    fontFamily={previewFont}
+                  />
                 </div>
               </div>
             </div>

@@ -10,12 +10,15 @@ import { flockingColors, flockingFonts, type Customization } from "@/config/cust
 export function JerseyPreview({
   customization,
   backImage,
+  fontFamily,
 }: {
   customization: Customization;
   backImage?: string;
+  /** Resolved CSS font-family override (e.g. the team's official font). */
+  fontFamily?: string;
 }) {
   const color = flockingColors.find((c) => c.id === customization.color)?.hex ?? "#fff";
-  const font = flockingFonts.find((f) => f.id === customization.font)?.css ?? "sans-serif";
+  const font = fontFamily ?? flockingFonts.find((f) => f.id === customization.font)?.css ?? "sans-serif";
   const name = (customization.name ?? "").toUpperCase().slice(0, 12) || "YOUR NAME";
   const number = (customization.number ?? "").slice(0, 2) || "10";
 
