@@ -49,7 +49,7 @@ export function JerseyPreview({
         >
           <text
             x="50"
-            y="34"
+            y="29"
             textAnchor="middle"
             fontFamily={font}
             fontSize="8.5"
@@ -62,9 +62,10 @@ export function JerseyPreview({
           >
             {name}
           </text>
+          {/* Number — moved up and stretched vertically for an elongated look */}
           <text
             x="50"
-            y="86"
+            y="80"
             textAnchor="middle"
             fontFamily={font}
             fontSize="40"
@@ -73,11 +74,12 @@ export function JerseyPreview({
             stroke="rgba(0,0,0,0.25)"
             strokeWidth="0.6"
             style={{ paintOrder: "stroke" }}
+            transform="matrix(1 0 0 1.28 0 -22.4)"
           >
             {number}
           </text>
           {/* Brand logo embedded at the bottom of the number */}
-          <image href={markSrc} x="43.5" y="74.5" width="13" height="13" opacity="0.92" />
+          <image href={markSrc} x="43.5" y="69" width="13" height="13" opacity="0.92" />
         </svg>
       </div>
     );
