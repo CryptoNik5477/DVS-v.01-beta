@@ -29,6 +29,7 @@ export default function CartPage() {
   const [promoInput, setPromoInput] = useState("");
   const [promo, setPromo] = useState<PromoState | null>(null);
   const [promoLoading, setPromoLoading] = useState(false);
+  const [checkingOut, setCheckingOut] = useState(false);
 
   const subtotal = items.reduce((s, i) => s + lineTotal(i), 0);
   const itemCount = items.reduce((n, i) => n + i.quantity, 0);
@@ -62,30 +63,50 @@ export default function CartPage() {
   }
 
   async function checkout() {
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        items: items.map((i) => ({
-          slug: i.slug,
-          name: i.name,
-          size: i.size,
-          color: i.color,
-          unitPrice: i.unitPrice + customizationSurcharge(i.customization),
-          quantity: i.quantity,
-          image: i.image,
-          customization: i.customization,
-        })),
-        country,
-        method,
-        promoCode: promo?.ok ? promo.code : undefined,
-      }),
-    });
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert(data.error ?? "Checkout is not configured. Add Stripe keys to .env.");
+    if (checkingOut) return;
+    setCheckingOut(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map((i) => ({
+            slug: i.slug,
+            name: i.name,
+            size: i.size,
+            color: i.color,
+            unitPrice: i.unitPrice + customizationSurcharge(i.customization),
+            quantity: i.quantity,
+            image: i.image,
+            customization: i.customization,
+          })),
+          country,
+          method,
+          promoCode: promo?.ok ? promo.code : undefined,
+        }),
+      });
+
+      // Read the body defensively: error pages may not be valid JSON.
+      const text = await res.text();
+      let data: { url?: string; error?: string } | null = null;
+      try {
+        data = text ? JSON.parse(text) : null;
+      } catch {
+        /* non-JSON response */
+      }
+
+      if (res.ok && data?.url) {
+        window.location.href = data.url;
+        return;
+      }
+      alert(
+        data?.error ??
+          `Checkout failed (HTTP ${res.status}). ${text.slice(0, 300) || "No response body."}`,
+      );
+    } catch (err) {
+      alert(`Could not reach checkout: ${(err as Error).message}`);
+    } finally {
+      setCheckingOut(false);
     }
   }
 
@@ -247,8 +268,12 @@ export default function CartPage() {
             </div>
           </dl>
 
-          <button onClick={checkout} className="btn-primary mt-5 w-full">
-            {t("checkout")}
+          <button
+            onClick={checkout}
+            disabled={checkingOut}
+            className="btn-primary mt-5 w-full disabled:opacity-60"
+          >
+            {checkingOut ? "…" : t("checkout")}
           </button>
           <Link href="/catalog" className="mt-3 block text-center text-xs text-navy/50 hover:text-red">
             {t("continue")}

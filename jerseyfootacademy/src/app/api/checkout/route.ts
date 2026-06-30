@@ -49,6 +49,7 @@ export async function POST(req: Request) {
   }
   const { items, country, method, promoCode } = parsed.data;
 
+  try {
   // SECURITY: recompute every price server-side from canonical data.
   // Never trust client-supplied prices.
   const lineItems = items.map((item) => {
@@ -129,8 +130,16 @@ export async function POST(req: Request) {
   });
 
   // Attach the order to the signed-in user (if any) so it shows in their account.
-  const authSession = await getServerSession(authOptions);
-  const userId = (authSession?.user as { id?: string } | undefined)?.id;
+  // Auth is optional: if NextAuth isn't configured, checkout proceeds as guest.
+  let userId: string | undefined;
+  let userEmail: string | undefined;
+  try {
+    const authSession = await getServerSession(authOptions);
+    userId = (authSession?.user as { id?: string } | undefined)?.id;
+    userEmail = authSession?.user?.email ?? undefined;
+  } catch {
+    // NextAuth not configured — continue as a guest checkout.
+  }
 
   // Best-effort: persist a PENDING order. Skipped silently if DB is unavailable.
   try {
@@ -138,7 +147,7 @@ export async function POST(req: Request) {
       data: {
         number: generateOrderNumber(),
         userId,
-        email: session.customer_details?.email ?? authSession?.user?.email ?? "pending@checkout",
+        email: session.customer_details?.email ?? userEmail ?? "pending@checkout",
         currency: "USD",
         subtotal,
         shippingCost: shipping.cost,
@@ -165,4 +174,11 @@ export async function POST(req: Request) {
   }
 
   return NextResponse.json({ url: session.url });
+  } catch (err) {
+    console.error("Checkout error:", err);
+    return NextResponse.json(
+      { error: `Checkout failed: ${(err as Error).message}` },
+      { status: 500 },
+    );
+  }
 }
