@@ -604,6 +604,48 @@ export const products: ProductSeed[] = [
     images: gallery(0, 1),
     stock: fullStock,
   },
+  {
+    name: "Uruguay National Team Home 2026",
+    slug: "uruguay-home-2026",
+    description: "La Celeste. Uruguay's sky-blue home shirt with the four-star AUF crest.",
+    basePrice: 9500,
+    categorySlug: "uruguay",
+    competition: "World Cup 2026",
+    season: "2026",
+    year: 2026,
+    isWorldCup: true,
+    isNew: true,
+    images: gallery(0, 1),
+    stock: fullStock,
+  },
+  {
+    name: "Colombia National Team Home 2026",
+    slug: "colombia-home-2026",
+    description: "Los Cafeteros. Colombia's vibrant yellow home kit with red-and-blue trim.",
+    basePrice: 9500,
+    categorySlug: "colombia",
+    competition: "World Cup 2026",
+    season: "2026",
+    year: 2026,
+    isWorldCup: true,
+    isNew: true,
+    images: gallery(0, 1),
+    stock: fullStock,
+  },
+  {
+    name: "Senegal National Team Home 2026",
+    slug: "senegal-home-2026",
+    description: "The Lions of Teranga. Senegal's white home shirt with green-gold-red detailing.",
+    basePrice: 9500,
+    categorySlug: "senegal",
+    competition: "World Cup 2026",
+    season: "2026",
+    year: 2026,
+    isWorldCup: true,
+    isNew: true,
+    images: gallery(0, 1),
+    stock: fullStock,
+  },
 ];
 
 /**
@@ -637,6 +679,9 @@ const REAL_IMAGES: Record<string, string[]> = {
   "saudi-arabia-home-2026": ["/products/saudi-arabia-home-2026-front.jpg", "/products/saudi-arabia-home-2026-back.jpg"],
   "south-korea-home-2026": ["/products/south-korea-home-2026-front.jpg", "/products/south-korea-home-2026-back.jpg"],
   "canada-home-2026": ["/products/canada-home-2026-front.jpg", "/products/canada-home-2026-back.jpg"],
+  "uruguay-home-2026": ["/products/uruguay-home-2026-front.jpg", "/products/uruguay-home-2026-back.jpg"],
+  "colombia-home-2026": ["/products/colombia-home-2026-front.jpg", "/products/colombia-home-2026-back.jpg"],
+  "senegal-home-2026": ["/products/senegal-home-2026-front.jpg", "/products/senegal-home-2026-back.jpg"],
 };
 
 function assignPlaceholderImages() {
