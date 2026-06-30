@@ -168,8 +168,8 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
                 <span className="mb-1 text-[11px] uppercase tracking-wide text-navy/40">
                   {t("preview")}
                 </span>
-                <div className="h-44 w-40">
-                  <JerseyPreview customization={custom} />
+                <div className="w-full max-w-[200px]">
+                  <JerseyPreview customization={custom} backImage={product.images[1] ?? product.images[0]} />
                 </div>
               </div>
             </div>
