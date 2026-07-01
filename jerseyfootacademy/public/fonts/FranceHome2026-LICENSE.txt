@@ -1,0 +1,7 @@
+France Home 2026 (flocking font)
+================================
+Modified/renamed derivative of "Chakra Petch" by Cadson Demak,
+licensed under the SIL Open Font License, Version 1.1 (modification,
+renaming and commercial use permitted under OFL). Full text:
+https://openfontlicense.org
+Original: Copyright (c) Cadson Demak (cadsondemak.com). Derivative under OFL 1.1.

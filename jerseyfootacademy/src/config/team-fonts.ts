@@ -11,7 +11,7 @@
  */
 export const TEAM_FONTS: Record<string, { label: string; css: string }> = {
   // ── National teams ─────────────────────────────────────────────
-  "france-nt": { label: "France", css: "'Saira Condensed', sans-serif" },
+  "france-nt": { label: "France", css: "'France Home 2026', 'JerseyFoot Display', sans-serif" },
   "england-nt": { label: "England", css: "'Oswald', sans-serif" },
   "spain-nt": { label: "España", css: "'Teko', sans-serif" },
   "germany-nt": { label: "Deutschland", css: "'Rajdhani', sans-serif" },

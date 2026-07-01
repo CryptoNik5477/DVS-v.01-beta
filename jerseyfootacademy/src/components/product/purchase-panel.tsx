@@ -22,19 +22,23 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
   const tc = useTranslations("common");
   const addItem = useCart((s) => s.addItem);
 
+  // The team's official-style flocking font (used for the "Official" option).
+  const officialFont = teamFontCss(product.categorySlug);
+  const officialLabel = teamFontLabel(product.categorySlug);
+
   const [size, setSize] = useState<Size | null>(null);
   const [personalise, setPersonalise] = useState(false);
-  const [custom, setCustom] = useState<Customization>({ font: "house", color: "white" });
+  // Default to the team's own font when it has one, otherwise the house font.
+  const [custom, setCustom] = useState<Customization>({
+    font: officialFont ? "official" : "house",
+    color: "white",
+  });
   const [added, setAdded] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const price = product.salePrice ?? product.basePrice;
   const hasCustomContent = Boolean(custom.name?.trim()) || Boolean(custom.number?.trim());
   const surcharge = personalise && hasCustomContent ? CUSTOMIZATION_SURCHARGE : 0;
-
-  // The team's official-style flocking font (used for the "Official" option).
-  const officialFont = teamFontCss(product.categorySlug);
-  const officialLabel = teamFontLabel(product.categorySlug);
   const previewFont =
     custom.font === "official" && officialFont
       ? officialFont
