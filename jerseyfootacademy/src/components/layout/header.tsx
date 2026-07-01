@@ -14,12 +14,13 @@ export function Header() {
   const t = useTranslations("nav");
   const tu = useTranslations("ui");
   const [open, setOpen] = useState(false);
-  const continents = childrenOf(undefined).filter((c) => c.type === "CONTINENT");
+  const leagues = childrenOf("clubs");
 
   const links = [
     { href: "/catalog", label: t("catalog") },
     { href: "/catalog/national-teams", label: t("nationalTeams") },
     { href: "/world-cup", label: t("worldCup") },
+    { href: "/best-sellers", label: "Best Sellers" },
     { href: "/sale", label: t("sale") },
   ];
 
@@ -86,7 +87,7 @@ export function Header() {
         <div className="hidden border-t border-navy/5 bg-cream lg:block">
           <div className="container-page flex h-10 items-center gap-6 text-xs font-medium text-navy/70">
             <span className="font-bold uppercase tracking-wide text-navy/40">{t("clubs")}:</span>
-            {continents.map((c) => (
+            {leagues.map((c) => (
               <Link key={c.slug} href={`/catalog/${c.slug}`} className="hover:text-red">
                 {c.name}
               </Link>
@@ -110,7 +111,7 @@ export function Header() {
               </Link>
             ))}
             <div className="pt-3 text-xs uppercase tracking-wide text-navy/40">{t("clubs")}</div>
-            {continents.map((c) => (
+            {leagues.map((c) => (
               <Link
                 key={c.slug}
                 href={`/catalog/${c.slug}`}

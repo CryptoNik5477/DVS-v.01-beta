@@ -104,6 +104,7 @@ enum CategoryType {
   CONTINENT
   COUNTRY
   CITY
+  LEAGUE // club league branch (Premier League, La Liga, …)
   CLUB
   NATIONAL // national selections branch
 }

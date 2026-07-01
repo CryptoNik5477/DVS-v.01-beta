@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ProductGrid } from "@/components/product/product-card";
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 
 export default async function CatalogPage() {
   const tu = await getTranslations("ui");
-  const continents = categories.filter((c) => c.type === "CONTINENT");
+  const leagues = categories.filter((c) => c.type === "LEAGUE" && c.parentSlug === "clubs");
   const nationalRoot = categories.find((c) => c.slug === "national-teams");
 
   return (
@@ -26,27 +25,27 @@ export default async function CatalogPage() {
       <p className="mt-1 text-navy/60">{tu("catalogIntro")}</p>
 
       <section className="mt-8">
-        <SectionHeader title={tu("byContinent")} />
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-          {continents.map((c) => (
+        <SectionHeader title="Clubs — by League" />
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          {leagues.map((c) => (
             <Link
               key={c.slug}
               href={`/catalog/${c.slug}`}
-              className="group relative aspect-square overflow-hidden rounded-xl"
+              className="group relative flex aspect-[5/2] items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-navy to-navy-700 text-center ring-1 ring-navy/10 transition hover:from-navy-700 hover:to-navy"
             >
-              {c.image && (
-                <Image src={c.image} alt={c.name} fill sizes="200px" className="object-cover transition group-hover:scale-110" />
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
-              <span className="absolute inset-x-0 bottom-0 p-3 text-sm font-bold text-white">{c.name}</span>
+              <span className="p-3 font-display text-lg font-bold uppercase tracking-wide text-white">
+                {c.name}
+              </span>
             </Link>
           ))}
           {nationalRoot && (
             <Link
               href="/catalog/national-teams"
-              className="group relative flex aspect-square items-center justify-center overflow-hidden rounded-xl bg-navy text-center"
+              className="group relative flex aspect-[5/2] items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-red to-red-light text-center ring-1 ring-red/20"
             >
-              <span className="p-3 text-sm font-bold text-gold">{tu("nationalTeamsCta")}</span>
+              <span className="p-3 font-display text-lg font-bold uppercase tracking-wide text-white">
+                {tu("nationalTeamsCta")}
+              </span>
             </Link>
           )}
         </div>

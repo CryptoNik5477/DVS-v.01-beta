@@ -1,6 +1,6 @@
 import type { CurrencyCode } from "@/config/currencies";
 
-export type CategoryType = "CONTINENT" | "COUNTRY" | "CITY" | "CLUB" | "NATIONAL";
+export type CategoryType = "CONTINENT" | "COUNTRY" | "CITY" | "LEAGUE" | "CLUB" | "NATIONAL";
 export type Size = "XS" | "S" | "M" | "L" | "XL" | "XXL";
 
 export interface CategoryNode {
