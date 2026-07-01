@@ -11,7 +11,7 @@ export const siteConfig = {
   ogImage: "/og-image.png",
   locale: "en",
   // Store base currency — all stored prices are in minor units of this currency.
-  baseCurrency: "USD" as const,
+  baseCurrency: "EUR" as const,
   twitter: "@jerseyfootacad",
   contact: {
     email: "jerseyfootacademy@yahoo.com",

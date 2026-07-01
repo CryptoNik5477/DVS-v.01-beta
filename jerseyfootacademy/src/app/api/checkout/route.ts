@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       stripe: {
         quantity: item.quantity,
         price_data: {
-          currency: "usd",
+          currency: "eur",
           unit_amount: unitAmount,
           product_data: {
             name: `${product.name} — ${item.size}${custom}`,
@@ -99,7 +99,7 @@ export async function POST(req: Request) {
       promoId = promo.promoId; // set only for DB-backed codes
       const coupon = await stripe.coupons.create({
         amount_off: promo.discount,
-        currency: "usd",
+        currency: "eur",
         name: promo.code,
         duration: "once",
       });
@@ -117,7 +117,7 @@ export async function POST(req: Request) {
           {
             shipping_rate_data: {
               type: "fixed_amount",
-              fixed_amount: { amount: shipping.cost, currency: "usd" },
+              fixed_amount: { amount: shipping.cost, currency: "eur" },
               display_name: `${shipping.zoneLabel} ${method === "EXPRESS" ? "Express" : "Standard"}`,
               delivery_estimate: {
                 minimum: { unit: "business_day", value: shipping.etaDays[0] },
@@ -154,7 +154,7 @@ export async function POST(req: Request) {
         number: generateOrderNumber(),
         userId,
         email: session.customer_details?.email ?? userEmail ?? "pending@checkout",
-        currency: "USD",
+        currency: "EUR",
         subtotal,
         shippingCost: shipping.cost,
         discountAmount,

@@ -2166,6 +2166,8 @@ function assignPlaceholderImages() {
   for (const p of products) {
     if (REAL_IMAGES[p.slug]) {
       p.images = REAL_IMAGES[p.slug];
+      p.basePrice = 3990; // uniform €39.90 for available jerseys
+      p.salePrice = undefined;
       continue;
     }
     // Coming soon
