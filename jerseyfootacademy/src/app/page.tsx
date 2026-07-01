@@ -59,10 +59,12 @@ export default async function HomePage() {
       </section>
 
       {/* Best sellers */}
-      <section className="container-page py-16">
-        <SectionHeader title={t("bestSellers")} href="/catalog" cta={t("popularCategories")} />
-        <ProductGrid products={bestSellers} />
-      </section>
+      {bestSellers.length > 0 && (
+        <section className="container-page py-16">
+          <SectionHeader title={t("bestSellers")} href="/best-sellers" cta={t("popularCategories")} />
+          <ProductGrid products={bestSellers} />
+        </section>
+      )}
 
       {/* Leagues */}
       <section className="container-page py-6">

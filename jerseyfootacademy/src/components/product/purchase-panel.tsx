@@ -63,6 +63,27 @@ export function PurchasePanel({ product }: { product: ProductSeed }) {
     setTimeout(() => setAdded(false), 2500);
   }
 
+  // "Coming soon" jerseys (no real photo yet): price 0, not orderable.
+  if (price === 0) {
+    return (
+      <div className="flex flex-col gap-4">
+        <span className="inline-flex w-fit items-center rounded-full bg-navy/5 px-3 py-1 text-sm font-bold uppercase tracking-wide text-navy/60">
+          Coming soon
+        </span>
+        <p className="text-navy/60">
+          Ce maillot arrive bientôt — photos et personnalisation à venir. Reviens vite ! ⚽
+        </p>
+        <button
+          disabled
+          className="btn-primary w-full cursor-not-allowed opacity-50"
+          aria-disabled
+        >
+          Bientôt disponible
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <div className="text-2xl">

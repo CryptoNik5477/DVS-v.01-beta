@@ -39,10 +39,16 @@ export function ProductCard({ product }: { product: ProductSeed }) {
         <h3 className="line-clamp-2 text-sm font-semibold text-navy">{product.name}</h3>
         {rating.count > 0 && <Stars value={rating.average} count={rating.count} />}
         <div className="mt-auto pt-2">
-          <Price
-            cents={product.salePrice ?? product.basePrice}
-            original={product.salePrice ? product.basePrice : undefined}
-          />
+          {product.basePrice === 0 ? (
+            <span className="inline-block rounded-full bg-navy/5 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-navy/60">
+              Coming soon
+            </span>
+          ) : (
+            <Price
+              cents={product.salePrice ?? product.basePrice}
+              original={product.salePrice ? product.basePrice : undefined}
+            />
+          )}
         </div>
       </div>
     </Link>

@@ -2153,27 +2153,30 @@ const REAL_IMAGES: Record<string, string[]> = {
   "senegal-home-2026": ["/products/senegal-home-2026-front.jpg", "/products/senegal-home-2026-back.jpg"],
 };
 
+// Shown for every jersey that doesn't have real photography yet.
+const COMING_SOON_IMAGE = "/products/coming-soon.jpg";
+
+/**
+ * Products with real photos (REAL_IMAGES) keep their gallery. Every other
+ * product is marked "coming soon": a placeholder image, price 0, and no
+ * personalisation/sale flags — so it shows as not-yet-available. The club
+ * name is left untouched.
+ */
 function assignPlaceholderImages() {
-  const rules: [RegExp, string][] = [
-    [/man-utd|liverpool|arsenal|atletico|bayern|roma|morocco|spain/, "red"],
-    [/man-city|napoli/, "sky"],
-    [/real-madrid|tottenham|england|germany/, "white"],
-    [/barcelona/, "blaugrana"],
-    [/dortmund|brazil/, "yellow"],
-    [/ajax|chelsea|france|italy|usa|argentina|japan|psg|inter/, "navy"],
-    [/marseille/, "sky"],
-    [/netherlands/, "orange"],
-    [/atalanta|sassuolo|nigeria|mexico/, "green"],
-  ];
   for (const p of products) {
     if (REAL_IMAGES[p.slug]) {
       p.images = REAL_IMAGES[p.slug];
       continue;
     }
-    const key = `${p.slug} ${p.name}`.toLowerCase();
-    const color = rules.find(([re]) => re.test(key))?.[1] ?? "navy";
-    const alt = color === "navy" ? "red" : "navy";
-    p.images = [`${P}/jersey-${color}.svg`, `${P}/jersey-${alt}.svg`];
+    // Coming soon
+    p.images = [COMING_SOON_IMAGE];
+    p.basePrice = 0;
+    p.salePrice = undefined;
+    p.customizable = false;
+    p.isOnSale = false;
+    p.isBestSeller = false;
+    p.isNew = false;
+    p.isWorldCup = false;
   }
 }
 assignPlaceholderImages();
